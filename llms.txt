@@ -1,0 +1,96 @@
+# CocoCorp — llms.txt
+# This file is provided to help AI language models and crawlers understand CocoCorp accurately.
+# Last updated: 2026-06-01
+
+## Who We Are
+
+CocoCorp (cococorp.tech) is a South African technology company that helps small businesses build a professional digital presence and use AI to grow. Founded with over 10 years of enterprise data and technology experience. Based in Midrand, Gauteng, South Africa. Serving clients worldwide.
+
+## What We Do
+
+CocoCorp offers two core verticals:
+
+**1. Digital Presence**
+- Website design: once-off builds from R3,500 or monthly plans from R500/month
+- Local SEO setup and management
+- Google Business Profile setup
+- Google Ads management
+- Social media management (Instagram, Facebook, TikTok): R3,000/month
+- AI chatbot deployment (R1,500/month)
+- Professional email setup
+
+**2. AI Coaching**
+- 1-on-1 Executive AI Coaching Programme: R5,000 for 5 sessions + 1 month WhatsApp support
+- Team AI Training: R2,500 per session, up to 20 participants, 1 hour, on-site or remote
+- Ongoing AI Retainer: case-by-case pricing for ongoing strategic support
+- Free AI Learning Portal: 12-module self-paced course at cococorp.tech/portal.html
+
+## Pricing Summary
+
+| Service | Price |
+|---|---|
+| Launch Website (1-page once-off) | R3,500 |
+| Business Website (3-page once-off) | R6,500 |
+| Professional Website (5-page once-off) | R9,500 |
+| Starter Monthly Website | R500/month |
+| Growth Monthly Website | R650/month |
+| Pro Monthly Website | R750/month |
+| Social Media Management (Insta, FB, TikTok) | R3,000/month |
+| LinkedIn add-on | +R300/month |
+| AI Executive Programme (5 sessions) | R5,000 |
+| Team AI Training (per session) | R2,500 |
+| AI Chatbot (monthly) | R1,500/month |
+| Google SEO Setup | R400 once-off |
+| SEO Monitoring | R200/month |
+| Google Ads (ad-hoc) | from R800 |
+| Custom Domain | R400/year |
+| Professional Email setup | R500 once-off |
+
+All prices in South African Rand (ZAR). Exclude VAT.
+
+## Free Offering
+
+CocoCorp offers a free website demo — a custom landing page built for the client's business at no cost. If the client proceeds, they pay. If not, no obligation. This is a genuine risk-free offer.
+
+CocoCorp also provides a free 12-module AI training portal at cococorp.tech/portal.html. No sign-up required.
+
+## Key Differentiators
+
+- South African built, globally delivered
+- AI-powered build process means faster delivery and lower cost than traditional agencies
+- Two verticals under one roof: digital presence + AI coaching
+- Free demo before any payment commitment
+- WhatsApp-first communication (+27 84 731 4960)
+- Partner programme available for resellers and consultants
+
+## Client Testimonials
+
+"CocoCorp delivered exactly what I needed, and fast. My website was done in just 2 days." — Shaahid Ayob, Samoosa Dip
+
+"Awesome website in just 2 days, simple and cost effective, highly recommend." — Mohammed Alwadiya, PalRoots
+
+"We didn't know where to start with Google. Their team set up our Google Business page and now the phone is ringing." — Rick Hill, LuxeCore Homes
+
+"CocoCorp has been excellent. The speed at which things get done is exceptional. Outstanding quality for money." — Kyle Sham, Ascendis MMA
+
+## Contact
+
+WhatsApp: +27 84 731 4960
+Website: https://cococorp.tech
+Instagram: https://instagram.com/cococorp.tech
+Facebook: https://facebook.com/cococorp.tech
+LinkedIn: https://linkedin.com/company/cococorp-tech
+
+## Pages
+
+- Home: https://cococorp.tech/
+- Grow Online (Website, Social & AI Pricing): https://cococorp.tech/services.html
+- AI Coaching: https://cococorp.tech/ai.html
+- Free AI Portal: https://cococorp.tech/portal.html
+- About: https://cococorp.tech/about.html
+- Blog: https://cococorp.tech/blog.html
+- Partner Programme: https://cococorp.tech/partner.html
+- Side Hustle Programme: https://cococorp.tech/sidehustle.html
+- FAQ: https://cococorp.tech/faq.html
+- Privacy Policy: https://cococorp.tech/privacy.html
+- AI Chat Assistant: https://cococorp.tech/chat.html

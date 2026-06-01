@@ -38,4 +38,7 @@ Allow: /
 User-agent: Bytespider
 Allow: /
 
+# LLM context file
+Allow: /llms.txt
+
 Sitemap: https://cococorp.tech/sitemap.xml

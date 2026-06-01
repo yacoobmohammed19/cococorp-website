@@ -1,6 +1,6 @@
 ## About CocoCorp
 
-CocoCorp is a Johannesburg-based technology company that builds professional websites and delivers AI solutions for small businesses. Based in Midrand, Gauteng, South Africa, the company serves clients across South Africa and internationally. The team brings over 10 years of enterprise data and technology experience.
+CocoCorp is a South African technology company that builds professional websites and delivers AI coaching for small businesses. Based in Midrand, Gauteng, South Africa, the company serves clients across South Africa and internationally. The team brings over 10 years of enterprise data and technology experience.
 
 Contact: +27 84 731 4960 (WhatsApp)
 Location: Midrand, Johannesburg, South Africa
@@ -23,41 +23,59 @@ CocoCorp builds professional, mobile-optimised websites for small businesses. Al
 
 ### Once-Off Website Packages
 
-Basic: R1,500 once-off (~$80 USD)
+Launch: R3,500 once-off
 - 1-Page Website
 - Mobile Optimised
 - 1 Revision Round
-- Hosting Included
+- Hosting Setup Included
+- WhatsApp Integration
 
-Standard: R2,000 once-off (~$108 USD) ,MOST POPULAR
-- Everything in Basic
-- Enhanced UI/UX Design
+Business: R6,500 once-off
+- Everything in Launch
+- Up to 3 Pages
 - Contact Form Integration
+- SEO Setup
 - Social Media Links
+- 2 Revision Rounds
 
-Custom / E-Commerce: Custom quote
+Professional: R9,500 once-off ,MOST POPULAR
+- Everything in Business
+- Up to 5 Pages
+- Full SEO Setup
+- Google Analytics Integration
+- 2 Revision Rounds
+- Priority Delivery
+
+Custom / E-Commerce: Request a Quote
 - Multi-Page Structure
 - E-Commerce Functionality
 - Advanced SEO Setup
 - Analytics Integration
+- Custom Integrations
 
 ### Monthly Website Subscriptions
 
-Monthly Flex: R450/month (~$24 USD) ,Cancel anytime
+Starter: R500/month
 - 1-Page Website
+- Mobile Optimised
+- Hosting Included
 - 1 Update per Month
-- Basic SEO Included
+- Basic SEO Setup
 
-6-Month Plan: R375/month (~$20 USD) ,Save 15%
-- 1-Page Website
+Growth: R650/month
+- Everything in Starter
+- Up to 3 Pages
 - 2 Updates per Month
 - Standard Domain Included
+- Contact Form Integration
 
-12-Month Plan: R300/month (~$16 USD) ,BEST VALUE, Save 33%
-- Lowest Monthly Rate
+Pro: R750/month ,MOST POPULAR
+- Everything in Growth
+- Up to 5 Pages
 - 3 Updates per Month
 - Priority Support
-- Standard Domain Included
+- Analytics Setup Included
+- Social Media Links
 
 ### Add-On Services
 
@@ -111,39 +129,45 @@ ZAR (South African Rand), USD, GBP, EUR
 
 ## AI Services & Training
 
-CocoCorp provides practical, affordable AI solutions for small businesses including AI-powered chatbots, business process automation, AI content creation, customer service automation, and WhatsApp bot integration.
+CocoCorp provides structured AI coaching for small business owners and their teams. The 1-on-1 Executive Programme covers 5 sessions and 1 month of WhatsApp support. Team AI Training sessions are available for up to 20 participants.
 
 ### How CocoCorp Helps With AI
 
-1. Get to Know What You Can Do: Workshops showing exactly what free tools like ChatGPT and Gemini can do, from writing emails to creating business plans.
+1. Understand Your AI Opportunity: We start by understanding your business — your daily tasks, your team, your biggest time drains. Then we map exactly where AI can add the most value for you specifically.
 
-2. Use AI for Marketing: Teaching businesses to use AI to instantly generate social media posts, blog articles, ad copy, and product descriptions.
+2. Learn the Tools That Matter: We identify the 3–4 tools that are right for your business and show you how to use them properly from day one.
 
-3. Find Meaningful Use Cases: Analysing daily tasks and helping find where AI saves the most time and money, from customer service to admin.
+3. Apply AI to Your Real Business: Live demos using your actual business as the example — marketing copy, proposals, financial summaries, competitor research.
 
-4. AI + Business Experience: Over 10 years in business technology means CocoCorp doesn't just know AI, they know business.
+4. Walk Away With a Plan: Every engagement ends with a written 90-day AI action plan tailored to your business.
 
 ### AI Pricing
 
-AI Awareness: R750 (~$40 USD)
-- 90-minute interactive session
-- 60 min presentation + 30 min Q&A
+Team AI Training: R2,500 per session
+- 60-minute hands-on session
 - Up to 20 participants
-- Perfect for teams and departments
+- On-site or remote
+- Marketing content and copywriting with AI
+- Document drafting and proposals
+- Customer communication automation
+- No technical background needed
 
-AI Strategy Session: R2,100 (~$115 USD) ,MOST POPULAR
-- 3-hour collaborative workshop
-- Up to 8 participants
-- Custom AI solution design
-- Implementation roadmap included
+Executive Programme: R5,000 ,MOST POPULAR
+- 5 structured 1-on-1 sessions
+- Session 1: AI Audit for your business
+- Session 2: Fundamentals and tool selection
+- Session 3: The tools that matter for you
+- Session 4: Live use cases with your business
+- Session 5: Written 90-day AI roadmap
+- 1 month WhatsApp support included
 
-AI Implementation: R2,500 (~$135 USD)
-- Three 1:1 consulting sessions
-- 90 minutes per session
-- Build, test and deploy your AI custom assistant
-- Ongoing support included
+AI Retainer: Case by Case
+- Monthly strategic check-ins
+- New tool recommendations as AI evolves
+- Ongoing implementation support
+- Tailored to your specific business
 
-All rates exclude VAT. In-person sessions in Johannesburg included. Remote sessions available worldwide. Travel outside Johannesburg billed at cost.
+All rates exclude VAT. Remote sessions available worldwide. In-person sessions available in South Africa. Travel outside South Africa billed at cost.
 
 ### AI Tools CocoCorp Teaches
 
@@ -207,16 +231,16 @@ Side Hustle by CocoCorp allows anyone to start an AI-powered digital agency for 
 ## Frequently Asked Questions
 
 Q: What does CocoCorp do?
-A: CocoCorp is a Johannesburg-based technology company that builds professional websites and delivers AI solutions for small businesses. Services include website design from R1,500, local SEO, Google Ads management, AI training workshops, and custom AI chatbot deployment. The company serves clients across South Africa and internationally.
+A: CocoCorp is a South African technology company that builds professional websites and delivers AI coaching for small businesses. Services include website design from R3,500 once-off, local SEO, Google Ads management, AI coaching, and custom AI chatbot deployment. The company serves clients across South Africa and internationally.
 
 Q: Does CocoCorp work with clients outside South Africa?
-A: Yes. CocoCorp is based in Midrand, Johannesburg, and delivers all work remotely. The team works in the SAST timezone (UTC+2), which overlaps well with European and UK business hours. Payments can be made in ZAR, USD, GBP, or EUR.
+A: Yes. CocoCorp is based in South Africa and delivers all work remotely. The team works in the SAST timezone (UTC+2), which overlaps well with European and UK business hours. Payments can be made in ZAR, USD, GBP, or EUR.
 
 Q: How do I contact CocoCorp?
 A: The fastest way is via WhatsApp at +27 84 731 4960. You can also use the contact form on the website or chat with the AI assistant at cococorp.tech/chat.html. CocoCorp responds to all enquiries within 2 hours during business hours (Mon-Fri, 9am-5pm SAST).
 
 Q: How much does a website cost?
-A: Once-off builds start from R1,500 (~$80 USD) for a basic one-page site. Monthly subscriptions start from R300/month (~$16 USD) on a 12-month plan. Full business websites with SEO start from R500/month.
+A: Once-off builds start from R3,500 for a basic one-page site. Monthly subscriptions start from R500/month. Full business websites start from R6,500 once-off.
 
 Q: Can I try before I pay?
 A: Yes. CocoCorp builds a custom landing page demo at no cost. If you love it, take it live. If not, you owe nothing. Completely risk-free with no obligation.
@@ -240,7 +264,7 @@ Q: Do I need technical skills to use AI?
 A: No. The tools CocoCorp teaches (ChatGPT, Google Gemini, Canva AI, Claude AI) are designed for non-technical users. You interact with them using plain English.
 
 Q: How much do AI services cost?
-A: AI Awareness sessions start at R750 (~$40 USD). AI Strategy Sessions are R2,100 (~$115 USD). AI Implementation packages are R2,500 (~$135 USD).
+A: Team AI Training sessions start at R2,500 per session. The 1-on-1 Executive Programme is R5,000 for 5 sessions plus one month of WhatsApp support. Ongoing AI Retainer is priced case by case.
 
 Q: Can you build an AI chatbot for my website?
 A: Yes. CocoCorp builds custom AI chatbots trained on your business information for R1,500/month. The chatbot handles customer enquiries 24/7, captures leads, and routes prospects to you.
@@ -276,7 +300,7 @@ The word "AI" gets thrown around so much that most small business owners have ei
 Published: 2026-03-11
 Category: Websites
 
-If you are running a small business right now and you do not have a website, you are not invisible ,you are simply handing customers to your competitors who do. In 2026, the first thing any potential customer does when they hear about your business is search for it online. What they find in those first five seconds determines whether they call you or move on. This article is for every entrepreneur who has ever said "I have WhatsApp, that's enough" or "my business is too small for a website." We are going to break down exactly why that thinking is costing you customers, and why a professional website is the most leverage you can buy for your business right now. The Credibility Gap Is Real When a potential customer hears about your business through a friend, on Instagram, or on a community group, the very next thing they do is search for you on Google. If nothing comes up ,or worse, if all they find is a Facebook page that was last updated in 2023 ,they make an instant judgement. That judgement is usually: this business might not be legitimate, or might not still be operating. A professional website signals that you are serious about what you do. It tells a stranger, "this person has invested in their business." It is the digital equivalent of having a clean, well-kept storefront. WhatsApp Is a Conversation, Not a Presence WhatsApp is a phenomenal business tool. Most of your customers use it every day. But it only works once someone already knows about you and has your number. It cannot help a new customer who types "plumber near me" into Google at 9pm on a Sunday and needs to find you in that moment. A website works 24 hours a day, 7 days a week. It answers questions, shows your work, displays your pricing, and captures leads while you are sleeping, serving other clients, or spending time with your family. WhatsApp complements a website. It cannot replace one. Google Cannot Rank What It Cannot Find Local SEO ,Search Engine Optimisation for your specific area ,is how small businesses get found by customers searching for exactly what they offer. When someone searches "hair salon near me" or "affordable electrician Johannesburg," Google ranks local businesses that have a verified online presence. Without a website, you have no URL to rank. You are effectively asking Google to recommend you without giving it any reason to. A simple, well-structured website with your location, services, and contact details is all it takes for Google to start surfacing your business to local customers who are actively searching for you. Your Competitors Already Have One In almost every industry right now, the businesses growing fastest are the ones that have combined a professional online presence with word-of-mouth referrals. They are capturing the customers your existing clients send their way AND the customers who find them organically on Google. The cost argument used to hold water. In 2018, a decent website cost R15,000 to R30,000 from a traditional web design agency. That is no longer the reality. AI-powered build processes have brought the cost of a professional, mobile-optimised, SEO-ready website down to a fraction of what it used to be. At CocoCorp , a fully managed website starts at R300 per month. What a Good Website Actually Does For You Visibility: Shows up when customers search for your service on Google and Google Maps. Credibility: Signals professionalism and legitimacy before a customer even speaks to you. Lead capture: A contact form, WhatsApp button, or booking system turns visitors into enquiries around the clock. Portfolio proof: Showcasing your past work builds trust faster than any sales pitch. Price anchoring: Displaying your pricing removes the friction of back-and-forth conversations and filters for serious enquiries. Google Business connection: A verified Google Business Profile linked to your website dramatically increases your visibility in local search results. The Risk-Free Way to Start The biggest reason small business owners delay getting a website is the fear of paying for something that does not deliver. Our approach at CocoCorp is to remove that risk entirely. We build your website first and show it to you before you pay a cent. If you love it, we take it live. If you are not satisfied, you owe us nothing. If you are a small business owner reading this and you still do not have a website, today is the right day to change that. The customers are already searching for you. The only question is whether they find you or your competitor.
+If you are running a small business right now and you do not have a website, you are not invisible ,you are simply handing customers to your competitors who do. In 2026, the first thing any potential customer does when they hear about your business is search for it online. What they find in those first five seconds determines whether they call you or move on. This article is for every entrepreneur who has ever said "I have WhatsApp, that's enough" or "my business is too small for a website." We are going to break down exactly why that thinking is costing you customers, and why a professional website is the most leverage you can buy for your business right now. The Credibility Gap Is Real When a potential customer hears about your business through a friend, on Instagram, or on a community group, the very next thing they do is search for you on Google. If nothing comes up ,or worse, if all they find is a Facebook page that was last updated in 2023 ,they make an instant judgement. That judgement is usually: this business might not be legitimate, or might not still be operating. A professional website signals that you are serious about what you do. It tells a stranger, "this person has invested in their business." It is the digital equivalent of having a clean, well-kept storefront. WhatsApp Is a Conversation, Not a Presence WhatsApp is a phenomenal business tool. Most of your customers use it every day. But it only works once someone already knows about you and has your number. It cannot help a new customer who types "plumber near me" into Google at 9pm on a Sunday and needs to find you in that moment. A website works 24 hours a day, 7 days a week. It answers questions, shows your work, displays your pricing, and captures leads while you are sleeping, serving other clients, or spending time with your family. WhatsApp complements a website. It cannot replace one. Google Cannot Rank What It Cannot Find Local SEO ,Search Engine Optimisation for your specific area ,is how small businesses get found by customers searching for exactly what they offer. When someone searches "hair salon near me" or "affordable electrician Johannesburg," Google ranks local businesses that have a verified online presence. Without a website, you have no URL to rank. You are effectively asking Google to recommend you without giving it any reason to. A simple, well-structured website with your location, services, and contact details is all it takes for Google to start surfacing your business to local customers who are actively searching for you. Your Competitors Already Have One In almost every industry right now, the businesses growing fastest are the ones that have combined a professional online presence with word-of-mouth referrals. They are capturing the customers your existing clients send their way AND the customers who find them organically on Google. The cost argument used to hold water. In 2018, a decent website cost R15,000 to R30,000 from a traditional web design agency. That is no longer the reality. AI-powered build processes have brought the cost of a professional, mobile-optimised, SEO-ready website down to a fraction of what it used to be. At CocoCorp , a fully managed website starts at R500 per month. What a Good Website Actually Does For You Visibility: Shows up when customers search for your service on Google and Google Maps. Credibility: Signals professionalism and legitimacy before a customer even speaks to you. Lead capture: A contact form, WhatsApp button, or booking system turns visitors into enquiries around the clock. Portfolio proof: Showcasing your past work builds trust faster than any sales pitch. Price anchoring: Displaying your pricing removes the friction of back-and-forth conversations and filters for serious enquiries. Google Business connection: A verified Google Business Profile linked to your website dramatically increases your visibility in local search results. The Risk-Free Way to Start The biggest reason small business owners delay getting a website is the fear of paying for something that does not deliver. Our approach at CocoCorp is to remove that risk entirely. We build your website first and show it to you before you pay a cent. If you love it, we take it live. If you are not satisfied, you owe us nothing. If you are a small business owner reading this and you still do not have a website, today is the right day to change that. The customers are already searching for you. The only question is whether they find you or your competitor.
 
 ---
 
@@ -285,7 +309,7 @@ If you are running a small business right now and you do not have a website, you
 Published: 2026-04-01
 Category: Websites
 
-A customer decides whether to trust your business within 3 seconds of landing on your website. That is not a metaphor. Research from Stanford University's Web Credibility Project found that 75% of people judge a company's credibility based on the design of their website. Before they read a single word of copy, before they check your pricing, before they look at your portfolio, they have already formed an opinion based purely on how your site looks and feels. For small businesses competing against larger, better-funded competitors, this is either a threat or an opportunity. If your website looks outdated, loads slowly, or does not exist at all, you are losing customers before the conversation even starts. If your site is clean, professional, and mobile-friendly, you are levelling the playing field instantly. What Credibility Actually Looks Like Online Online credibility is built through a set of specific trust signals that visitors process subconsciously. Understanding these signals lets you design for trust deliberately rather than hoping for the best. Professional design. A clean layout with consistent fonts, colours, and spacing tells a visitor that the business behind the site pays attention to detail. If your website looks like it was built in 2012, visitors assume your business operates the same way. Mobile responsiveness. Over 60% of web traffic in South Africa comes from mobile devices. If your site does not work perfectly on a phone, you are telling the majority of your visitors that their experience does not matter to you. Fast loading. Every second of load time increases bounce rate by roughly 7%. A slow site signals unreliability. A fast site signals competence. Clear contact information. Visitors want to know they can reach a real person. A visible phone number, email address, physical location, and WhatsApp link all reduce perceived risk. Hiding your contact details has the opposite effect. Social proof. Testimonials, client logos, case studies, and Google reviews are the online equivalent of a personal recommendation. They transfer trust from someone who has already worked with you to someone who is considering it. The Gap Between You and Your Competitor Imagine two plumbers in the same area. Both do excellent work. Both charge similar rates. One has a professional website with photos of completed jobs, five Google reviews, a clear pricing page, and a WhatsApp booking button. The other has a Facebook page last updated three months ago. When a homeowner searches "plumber near me" at 8pm on a weeknight, which one gets the call? The answer is obvious, and it has nothing to do with who is the better plumber. It has everything to do with who presented themselves more credibly in the 3 seconds the customer spent deciding. This gap exists in every industry. Hair salons, restaurants, fitness trainers, consultants, cleaning services, tutors, mechanics. The business with the better online presence wins the customer who is comparing options, every time. What a Credible Website Contains You do not need a 20-page site to build credibility. A single well-structured page with the right elements outperforms a bloated site with poor design. At minimum, a credible small business website needs a clear headline stating what you do and who you serve, a section showing your work or describing your services, social proof in the form of reviews or testimonials, your pricing or a clear way to request a quote, and visible contact details with multiple ways to reach you. That is it. One page, five elements, and your credibility jumps from "unknown" to "trustworthy" in the eyes of a new customer. The Cost of Doing Nothing Every day without a professional website is a day where potential customers are finding your competitors instead of you. The maths is simple: if your website converts just one additional customer per month, and that customer is worth R500 to your business, a site that costs R300 per month pays for itself immediately and generates profit from month one. The businesses that understand this are already online. The ones that delay are watching their competitors pull further ahead. A professional website is the single highest-leverage investment a small business can make in 2026, and with services like CocoCorp's risk-free demo , there is genuinely no reason to wait.
+A customer decides whether to trust your business within 3 seconds of landing on your website. That is not a metaphor. Research from Stanford University's Web Credibility Project found that 75% of people judge a company's credibility based on the design of their website. Before they read a single word of copy, before they check your pricing, before they look at your portfolio, they have already formed an opinion based purely on how your site looks and feels. For small businesses competing against larger, better-funded competitors, this is either a threat or an opportunity. If your website looks outdated, loads slowly, or does not exist at all, you are losing customers before the conversation even starts. If your site is clean, professional, and mobile-friendly, you are levelling the playing field instantly. What Credibility Actually Looks Like Online Online credibility is built through a set of specific trust signals that visitors process subconsciously. Understanding these signals lets you design for trust deliberately rather than hoping for the best. Professional design. A clean layout with consistent fonts, colours, and spacing tells a visitor that the business behind the site pays attention to detail. If your website looks like it was built in 2012, visitors assume your business operates the same way. Mobile responsiveness. Over 60% of web traffic in South Africa comes from mobile devices. If your site does not work perfectly on a phone, you are telling the majority of your visitors that their experience does not matter to you. Fast loading. Every second of load time increases bounce rate by roughly 7%. A slow site signals unreliability. A fast site signals competence. Clear contact information. Visitors want to know they can reach a real person. A visible phone number, email address, physical location, and WhatsApp link all reduce perceived risk. Hiding your contact details has the opposite effect. Social proof. Testimonials, client logos, case studies, and Google reviews are the online equivalent of a personal recommendation. They transfer trust from someone who has already worked with you to someone who is considering it. The Gap Between You and Your Competitor Imagine two plumbers in the same area. Both do excellent work. Both charge similar rates. One has a professional website with photos of completed jobs, five Google reviews, a clear pricing page, and a WhatsApp booking button. The other has a Facebook page last updated three months ago. When a homeowner searches "plumber near me" at 8pm on a weeknight, which one gets the call? The answer is obvious, and it has nothing to do with who is the better plumber. It has everything to do with who presented themselves more credibly in the 3 seconds the customer spent deciding. This gap exists in every industry. Hair salons, restaurants, fitness trainers, consultants, cleaning services, tutors, mechanics. The business with the better online presence wins the customer who is comparing options, every time. What a Credible Website Contains You do not need a 20-page site to build credibility. A single well-structured page with the right elements outperforms a bloated site with poor design. At minimum, a credible small business website needs a clear headline stating what you do and who you serve, a section showing your work or describing your services, social proof in the form of reviews or testimonials, your pricing or a clear way to request a quote, and visible contact details with multiple ways to reach you. That is it. One page, five elements, and your credibility jumps from "unknown" to "trustworthy" in the eyes of a new customer. The Cost of Doing Nothing Every day without a professional website is a day where potential customers are finding your competitors instead of you. The maths is simple: if your website converts just one additional customer per month, and that customer is worth R500 to your business, a site that costs R500 per month pays for itself immediately and generates profit from month one. The businesses that understand this are already online. The ones that delay are watching their competitors pull further ahead. A professional website is the single highest-leverage investment a small business can make in 2026, and with services like CocoCorp's risk-free demo , there is genuinely no reason to wait.
 
 ---
 

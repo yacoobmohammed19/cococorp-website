@@ -16,7 +16,7 @@ const SOCIAL = {
 
 const NAV_ITEMS = [
     { href: 'index.html', label: 'Home' },
-    { href: 'services.html', label: 'Websites & SEO' },
+    { href: 'services.html', label: 'Grow Online' },
     { href: 'ai.html', label: 'AI for Business' },
     { href: 'about.html', label: 'About Us' },
     { href: 'blog.html', label: 'Blog' },
@@ -25,7 +25,7 @@ const NAV_ITEMS = [
 
 const FOOTER_LINKS = [
     { href: 'about.html', label: 'About' },
-    { href: 'services.html', label: 'Services' },
+    { href: 'services.html', label: 'Grow Online' },
     { href: 'ai.html', label: 'AI Solutions' },
     { href: 'blog.html', label: 'Blog' },
     { href: 'faq.html', label: 'FAQ' },
