@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en-ZA">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="The CocoCorp blog. Practical articles on website design, AI tools, local SEO, and digital growth for small businesses worldwide.">
+<meta name="keywords" content="small business blog, website design tips, ai tools small business, seo tips, digital growth">
+<meta name="author" content="COCOCORP">
+<link rel="canonical" href="https://cococorp.tech/blog.html">
+<meta property="og:title" content="Blog ,Website, AI & Digital Growth Tips | CocoCorp">
+<meta property="og:description" content="Practical articles on website design, AI tools, local SEO, and digital growth for small businesses.">
+<meta property="og:url" content="https://cococorp.tech/blog.html">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://cococorp.tech/assets/images/og-image.jpg">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="icon" type="image/png" sizes="192x192" href="assets/logo.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/logo.png">
+<title>Blog ,Website, AI & Digital Growth Tips for Small Businesses | CocoCorp</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="stylesheet" href="css/cococorp.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[{"@type":"Blog","name":"CocoCorp Blog","url":"https://cococorp.tech/blog.html","description":"Practical articles on website design, AI tools, local SEO, and digital growth for small businesses.","publisher":{"@type":"Organization","name":"CocoCorp","url":"https://cococorp.tech"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://cococorp.tech/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://cococorp.tech/blog.html"}]}]}
+</script>
+</head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-G3QEERCYFN"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-G3QEERCYFN');</script>
+<body>
+<nav id="site-nav" class="site-nav"></nav>
+
+<section class="hero-mini">
+    <div class="hero-gradient"></div>
+    <div class="hero-content">
+        <div class="hero-eyebrow" style="opacity:1;transform:none;">Our Blog</div>
+        <h1 class="hero-title" style="opacity:1;font-size:clamp(2rem,5vw,3.5rem);">Website, AI & Digital Growth Tips</h1>
+        <p class="hero-sub" style="opacity:1;transform:none;">Practical articles to help your small business compete online.</p>
+    </div>
+</section>
+
+<section class="section section-light">
+    <div class="section-inner">
+        <div id="blogGrid" class="grid-3 scroll-stagger">
+            <div style="text-align:center;grid-column:1/-1;padding:3rem;color:#6b7280;">Loading articles...</div>
+        </div>
+    </div>
+</section>
+
+<section class="section section-dark">
+    <div class="section-dark-bg"></div>
+    <div class="section-inner text-center relative">
+        <h2 class="heading-lg color-white scroll-words">Want Practical Tech Advice?</h2>
+        <p class="scroll-para text-muted" style="font-size:1.1rem;max-width:600px;margin:0 auto 2rem;">Follow us for weekly tips on websites, AI, and growing your business online.</p>
+        <a href="index.html#contact" class="btn-primary scroll-para">Get in Touch</a>
+    </div>
+</section>
+
+<footer id="site-footer" class="site-footer"></footer>
+<script src="js/components.js"></script>
+<script>
+(async function() {
+    var grid = document.getElementById('blogGrid');
+    try {
+        var res = await fetch('data/blogs.json');
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        var posts = await res.json();
+        if (!posts.length) {
+            grid.innerHTML = '<div style="text-align:center;grid-column:1/-1;padding:3rem;color:#6b7280;">No articles found.</div>';
+            return;
+        }
+        var sorted = posts.sort(function(a, b) { return new Date(b.date) - new Date(a.date); });
+        var html = '';
+        for (var i = 0; i < sorted.length; i++) {
+            var post = sorted[i];
+            var dateStr = new Date(post.date).toLocaleDateString('en-ZA', {year:'numeric', month:'long', day:'numeric'});
+            html += '<a href="post.html?slug=' + post.slug + '" class="blog-card scroll-para visible" style="--si:' + i + ';text-decoration:none;color:inherit;display:block;">'
+                + '<div class="blog-card-body">'
+                + '<span class="blog-card-tag" style="background:' + post.tagColor + '15;color:' + post.tagColor + ';">' + post.tag + '</span>'
+                + '<h2 style="font-size:1.2rem;font-weight:800;color:#0f172a;margin-bottom:0.5rem;line-height:1.3;">' + post.title + '</h2>'
+                + '<p style="font-size:0.9rem;color:#6b7280;line-height:1.6;margin-bottom:1rem;">' + post.excerpt + '</p>'
+                + '<div style="display:flex;justify-content:space-between;align-items:center;font-size:0.8rem;color:#9ca3af;">'
+                + '<span>' + dateStr + '</span>'
+                + '<span>' + post.readTime + '</span>'
+                + '</div>'
+                + '</div>'
+                + '</a>';
+        }
+        grid.innerHTML = html;
+    } catch(e) {
+        console.error('Blog load failed:', e);
+        grid.innerHTML = '<div style="text-align:center;grid-column:1/-1;padding:3rem;color:#6b7280;">Articles could not be loaded. Please try again later.</div>';
+    }
+})();
+</script>
+<script src="https://app.dante-ai.com/bubble-embed.js?kb_id=33c23993-a07a-4d66-908d-bccbe9089ded&token=b3456ba8-ce7d-42b4-b8fa-2d3686e90f42"></script>
+</body>
+</html>

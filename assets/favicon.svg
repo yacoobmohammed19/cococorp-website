@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <!-- White background circle -->
+  <circle cx="100" cy="100" r="98" fill="#ffffff"/>
+  <!-- Blue ring -->
+  <circle cx="100" cy="100" r="88" fill="none" stroke="#2563EB" stroke-width="18"/>
+  <!-- Pink C -->
+  <path d="M125,60 A52,52 0 1,0 125,140" fill="none" stroke="#EC4899" stroke-width="24" stroke-linecap="round"/>
+</svg>

@@ -1,0 +1,41 @@
+# CocoCorp - https://cococorp.tech
+# We welcome all search engines and AI crawlers
+
+User-agent: *
+Allow: /
+Disallow: /portal.html
+Disallow: /chat.html
+Disallow: /data/data.json
+
+# Explicitly allow AI/LLM crawlers for GEO visibility
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Cohere-ai
+Allow: /
+
+User-agent: Meta-ExternalAgent
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+Sitemap: https://cococorp.tech/sitemap.xml

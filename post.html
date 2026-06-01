@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en-ZA">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="COCOCORP">
+<meta id="metaDesc" name="description" content="">
+<meta id="ogTitle" property="og:title" content="">
+<meta id="ogDesc" property="og:description" content="">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://cococorp.tech/assets/images/og-image.jpg">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="icon" type="image/png" sizes="192x192" href="assets/logo.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/logo.png">
+<title id="pageTitle">Loading... | CocoCorp Blog</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="stylesheet" href="css/cococorp.css">
+<script id="schemaScript" type="application/ld+json">{}</script>
+</head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-G3QEERCYFN"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-G3QEERCYFN');</script>
+<body>
+<nav id="site-nav" class="site-nav"></nav>
+
+<!-- Post header (populated by JS) -->
+<header class="hero-mini" id="postHeader">
+    <div class="hero-gradient"></div>
+    <div class="hero-content" style="text-align:left;max-width:720px;">
+        <a href="blog.html" style="display:inline-flex;align-items:center;color:rgba(255,255,255,0.6);font-size:0.85rem;font-weight:600;margin-bottom:1.5rem;transition:color 0.3s;">
+            <i class="fas fa-arrow-left" style="margin-right:0.5rem;"></i> Back to Blog
+        </a>
+        <div id="postTag" style="display:inline-block;padding:0.3rem 0.8rem;font-size:0.7rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;border-radius:100px;margin-bottom:1rem;"></div>
+        <h1 id="postTitle" style="font-size:clamp(1.8rem,4vw,2.8rem);font-weight:900;color:#fff;line-height:1.2;margin-bottom:1rem;"></h1>
+        <div id="postMeta" style="display:flex;gap:1.5rem;font-size:0.85rem;color:rgba(255,255,255,0.5);"></div>
+    </div>
+</header>
+
+<!-- Article body (populated by JS) -->
+<section class="section section-light">
+    <div class="section-inner">
+        <div class="article-body" id="postBody">
+            <p style="text-align:center;color:#6b7280;padding:3rem;">Loading article...</p>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="section section-dark">
+    <div class="section-dark-bg"></div>
+    <div class="section-inner text-center relative">
+        <h2 class="heading-lg color-white scroll-words">Ready to Grow Your Business?</h2>
+        <p class="scroll-para text-muted" style="font-size:1.1rem;max-width:600px;margin:0 auto 2rem;">Whether you need a website, SEO, or AI training, we're here to help. Chat to us today.</p>
+        <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;" class="scroll-para">
+            <a href="services.html" class="btn-primary">See Our Services</a>
+            <a href="ai.html" class="btn-outline">AI for Business</a>
+        </div>
+    </div>
+</section>
+
+<!-- More posts -->
+<section class="section section-gray">
+    <div class="section-inner">
+        <h2 class="heading-lg color-dark text-center scroll-words">More Articles</h2>
+        <div id="morePosts" class="grid-3 scroll-stagger" style="margin-top:2rem;"></div>
+    </div>
+</section>
+
+<footer id="site-footer" class="site-footer"></footer>
+<script src="js/components.js"></script>
+<script>
+(async function() {
+    const slug = new URLSearchParams(window.location.search).get('slug');
+    if (!slug) { window.location.href = 'blog.html'; return; }
+
+    try {
+        const res = await fetch('data/blogs.json');
+        const posts = await res.json();
+        const post = posts.find(p => p.slug === slug);
+        if (!post) { window.location.href = 'blog.html'; return; }
+
+        // Populate meta
+        document.getElementById('pageTitle').textContent = `${post.title} | CocoCorp Blog`;
+        document.getElementById('metaDesc').content = post.description;
+        document.getElementById('ogTitle').content = post.title;
+        document.getElementById('ogDesc').content = post.description;
+
+        // Populate schema
+        document.getElementById('schemaScript').textContent = JSON.stringify({
+            "@context": "https://schema.org",
+            "@graph": [{
+                "@type": "BlogPosting",
+                "headline": post.title,
+                "description": post.description,
+                "url": `https://cococorp.tech/post.html?slug=${post.slug}`,
+                "datePublished": post.date,
+                "dateModified": post.date,
+                "author": {"@type":"Organization","name":"CocoCorp","url":"https://cococorp.tech"},
+                "publisher": {"@type":"Organization","name":"CocoCorp","url":"https://cococorp.tech"},
+                "keywords": post.keywords,
+                "articleSection": post.tag,
+                "inLanguage": "en-ZA"
+            },{
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    {"@type":"ListItem","position":1,"name":"Home","item":"https://cococorp.tech/"},
+                    {"@type":"ListItem","position":2,"name":"Blog","item":"https://cococorp.tech/blog.html"},
+                    {"@type":"ListItem","position":3,"name":post.title,"item":`https://cococorp.tech/post.html?slug=${post.slug}`}
+                ]
+            }]
+        });
+
+        // Populate header
+        const tag = document.getElementById('postTag');
+        tag.textContent = post.tag;
+        tag.style.background = post.tagColor;
+        tag.style.color = '#fff';
+        document.getElementById('postTitle').textContent = `${post.title} — ${post.subtitle}`;
+        document.getElementById('postMeta').innerHTML = `
+            <span><i class="far fa-calendar" style="margin-right:0.4rem;"></i>${new Date(post.date).toLocaleDateString('en-ZA',{year:'numeric',month:'long',day:'numeric'})}</span>
+            <span><i class="far fa-clock" style="margin-right:0.4rem;"></i>${post.readTime}</span>
+            <span><i class="far fa-user" style="margin-right:0.4rem;"></i>${post.author}</span>`;
+
+        // Populate body with inline CTAs
+        var bodyHtml = post.body;
+        // Contextual CTA based on tag
+        var ctaMap = {
+            'AI Tools': {title:'Want AI set up for your business?', desc:'We run hands-on AI implementation sessions tailored to your workflow. Book a free 15-minute call.', href:'ai.html', btn:'Explore AI Services'},
+            'Websites': {title:'Ready for a professional website?', desc:'We build your site for free first. If you love it, take it live. No obligation.', href:'https://wa.me/27847314960?text=Hi%20COCOCORP!%20I%20read%20your%20blog%20and%20want%20a%20free%20website%20demo.', btn:'Get Your Free Demo', ext:true},
+            'Growth': {title:'Need help converting more leads?', desc:'We build websites designed to generate and capture leads. Let us show you how.', href:'services.html', btn:'See Our Services'},
+            'Strategy': {title:'Want a tech strategy for your business?', desc:'We help small businesses implement the right tools. Book a free consultation.', href:'https://wa.me/27847314960?text=Hi%20COCOCORP!%20I%20read%20your%20blog%20and%20want%20to%20discuss%20a%20tech%20strategy.', btn:'Chat With Us', ext:true}
+        };
+        var cta = ctaMap[post.tag] || ctaMap['Websites'];
+        var target = cta.ext ? ' target="_blank"' : '';
+        var ctaBlock = '<div class="blog-cta"><div class="blog-cta-title">' + cta.title + '</div><div class="blog-cta-desc">' + cta.desc + '</div><a href="' + cta.href + '"' + target + ' class="blog-cta-btn">' + cta.btn + ' <i class="fas fa-arrow-right" style="font-size:0.7rem;"></i></a></div>';
+        // Insert mid-article: after the 3rd </p> or </ul>
+        var insertCount = 0;
+        bodyHtml = bodyHtml.replace(/<\/(p|ul)>/gi, function(match) {
+            insertCount++;
+            if (insertCount === 4) return match + ctaBlock;
+            return match;
+        });
+        // End-of-article CTA
+        var endCta = '<div class="blog-cta" style="margin-top:2.5rem;background:linear-gradient(135deg,#0f172a,#1e293b);border:1px solid rgba(255,255,255,0.1);"><div class="blog-cta-title" style="color:#fff;">Like what you just read?</div><div class="blog-cta-desc" style="color:rgba(255,255,255,0.6);">Get a professional website for your business. We build it free first, you only pay if you love it.</div><a href="https://wa.me/27847314960?text=Hi%20COCOCORP!%20I%20read%20your%20blog%20and%20want%20to%20chat." target="_blank" class="blog-cta-btn" style="background:#25D366;"><i class="fab fa-whatsapp" style="margin-right:0.3rem;"></i>Chat With Us on WhatsApp</a></div>';
+        bodyHtml += endCta;
+        document.getElementById('postBody').innerHTML = bodyHtml;
+
+        // Populate more posts
+        const others = posts.filter(p => p.slug !== slug).slice(0, 3);
+        document.getElementById('morePosts').innerHTML = others.map((p, i) => `
+            <a href="post.html?slug=${p.slug}" class="blog-card scroll-para visible" style="--si:${i};text-decoration:none;color:inherit;display:block;">
+                <div class="blog-card-body">
+                    <span class="blog-card-tag" style="background:${p.tagColor}15;color:${p.tagColor};">${p.tag}</span>
+                    <h3 style="font-size:1.1rem;font-weight:800;color:#0f172a;margin-bottom:0.5rem;">${p.title}</h3>
+                    <p style="font-size:0.85rem;color:#6b7280;line-height:1.6;">${p.excerpt.substring(0,120)}...</p>
+                </div>
+            </a>`).join('');
+
+    } catch(e) { console.error('Failed to load post:', e); }
+})();
+</script>
+
+</body>
+</html>

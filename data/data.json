@@ -1,0 +1,504 @@
+[
+  {
+    "id": "01-ai-fundamentals",
+    "navTitle": "01. AI Fundamentals",
+    "title": "AI Fundamentals (What is AI?)",
+    "overview": "Understand the difference between rule-based and learning systems, what LLMs actually do, where they excel, where they fail, and when to keep a human in the loop.",
+    "coreContent": "<h4>1) Traditional Software vs Machine Learning</h4><p><strong>Rule-based software</strong> follows explicit logic written by developers (e.g., <code>IF income &gt; X THEN rate = Y</code>). It is transparent and deterministic but brittle when conditions change. <strong>Machine Learning (ML)</strong> learns patterns from data. Instead of listing every feature of a cat, a model trained on many examples learns what makes a cat recognizable. ML adapts to new inputs but requires data curation and evaluation.</p><ul><li><strong>Good fit for rules:</strong> clear, stable policies; compliance checks; fixed pricing tiers.</li><li><strong>Good fit for ML:</strong> fuzzy boundaries; many edge cases; natural language; vision; personalization.</li></ul><h4>2) What Large Language Models Actually Do</h4><p>LLMs are sequence models that <strong>predict the next token</strong> given prior tokens. From this simple skill emerge powerful capabilities:</p><ul><li><strong>Summarise</strong> long text into executive briefs or bullets.</li><li><strong>Classify</strong> emails, cases, or contacts by intent or priority.</li><li><strong>Extract</strong> entities like names, amounts, dates, and policy references.</li><li><strong>Draft</strong> emails, reports, proposals, or code.</li></ul><p><em>Important:</em> LLMs model language regularities, not verified facts. Un-grounded generations may be fluent yet wrong.</p><h4>3) Typical Failure Modes</h4><ul><li><strong>Hallucinations:</strong> confident statements that are not supported by sources.</li><li><strong>Stale knowledge:</strong> training cut-offs miss recent changes.</li><li><strong>Mis-specified tasks:</strong> vague instructions create outputs at the wrong level or for the wrong audience.</li><li><strong>Missing inputs:</strong> requests to summarise or compare without attaching the materials.</li></ul><h4>4) Mitigations that Raise Reliability</h4><ul><li><strong>Structured prompts & outputs:</strong> specify audience, tone, and <em>format</em> (JSON, table, bullets with limits).</li><li><strong>Retrieval-Augmented Generation (RAG):</strong> inject passages from trusted sources; ask the model to cite them.</li><li><strong>Tool use:</strong> offload math, lookups, and system actions to deterministic tools; the model orchestrates.</li><li><strong>Human-in-the-Loop (HIL):</strong> require review for legal, financial, HR, or customer-impacting outputs; escalate on low confidence.</li></ul><h4>5) Human-in-the-Loop Triggers (practical)</h4><ul><li>High stakes decisions or irreversible actions.</li><li>Ambiguous instructions or missing data.</li><li>Unfamiliar edge cases or novel scenarios.</li><li>Model confidence signals are low or conflicting.</li></ul><h4>6) Mini-Checklist</h4><ul><li>Is the task clearly framed with a desired format?</li><li>Are the required documents or data attached?</li><li>Should retrieval be used to ground facts?</li><li>Who signs off if the output is used externally?</li></ul>",
+    "quiz": {
+      "questions": [
+        {
+          "question": "LLMs are best described as systems that…",
+          "options": ["store verified facts like a database", "predict the next token based on context", "execute deterministic rules", "render images by default"],
+          "answer": "predict the next token based on context",
+          "explanation": "LLMs generate text by predicting the next token; they don’t guarantee factual accuracy without grounding."
+        },
+        {
+          "question": "When should a Human-in-the-Loop be mandatory?",
+          "options": ["For emoji selection", "For minor grammar fixes", "For high-stakes or customer-impacting decisions", "For low-risk drafts"],
+          "answer": "For high-stakes or customer-impacting decisions",
+          "explanation": "Escalate when risk is high, instructions are ambiguous, or confidence is low."
+        },
+        {
+          "question": "What is the primary benefit of Retrieval-Augmented Generation (RAG)?",
+          "options": ["Choosing a model vendor", "Disabling tool calls", "Reducing token count only", "Injecting relevant evidence into the prompt"],
+          "answer": "Injecting relevant evidence into the prompt",
+          "explanation": "RAG grounds outputs in authoritative sources, reducing hallucinations."
+        },
+        {
+          "question": "Which is a common failure mode of LLMs?",
+          "options": ["Guaranteed citations", "Hallucinations", "SSO misconfiguration", "Perfect recall"],
+          "answer": "Hallucinations",
+          "explanation": "Fluent but incorrect outputs occur without proper grounding or guardrails."
+        },
+        {
+          "question": "Which mitigation most directly improves reliability?",
+          "options": ["Requesting structured outputs (e.g., JSON/table)", "Hiding inputs", "Randomizing length", "Disabling validation"],
+          "answer": "Requesting structured outputs (e.g., JSON/table)",
+          "explanation": "Clear formats reduce ambiguity and make validation easier."
+        }
+      ]
+    }
+  },
+	{
+	  "id": "02-landscape",
+	  "navTitle": "02. Landscape of Options",
+	  "title": "Landscape of Options (ChatGPT, Gemini, NotebookLM, Claude, Llama)",
+	  "overview": "Choose the right AI platform by comparing hosted services and open-weight models. Understand trade-offs in speed, control, security, and cost, and use examples to guide your decision.",
+	  "coreContent": "<h4>1) Hosted Models: Speed, Scale, Simplicity</h4>\n<p>Hosted models are run by providers like <strong>OpenAI (ChatGPT)</strong>, <strong>Google (Gemini, NotebookLM)</strong>, and <strong>Anthropic (Claude)</strong>. You access them via the cloud while the vendor manages servers, scaling, updates, and security patches in the background.</p>\n<ul>\n<li><strong>Pros:</strong> Quickest way to start; elastic scaling (handles surges automatically); built-in enterprise controls like SSO, RBAC, audit logs, and usage quotas.</li>\n<li><strong>Best when:</strong> You need results fast; vendor-managed infrastructure is preferred; strong SLAs and regular updates are important.</li>\n<li><strong>Trade-offs:</strong> Data residency may be limited; you depend on the vendor’s roadmap; costs grow with heavy usage (pay-as-you-go model).</li>\n</ul>\n<p><strong>Example:</strong> A marketing team uses ChatGPT to draft social media copy and Gemini inside Google Docs to polish proposals without managing servers or updates.</p>\n\n<h4>2) Open-Weight Models: Control & Customisation</h4>\n<p>Open-weight models (e.g., <strong>Meta’s Llama family</strong>) can be run in your own cloud (VPC) or on-premises. You get full control over how and where the model operates, but you also carry full responsibility for operations.</p>\n<ul>\n<li><strong>Pros:</strong> Keeps sensitive data local; allows fine-tuned safety guardrails; deeply integrates with internal systems and workflows.</li>\n<li><strong>Best when:</strong> Strict compliance or isolation is needed (e.g., financial services, healthcare, government) and your team has strong ML/MLOps capabilities.</li>\n<li><strong>Trade-offs:</strong> You must handle GPUs, scaling, monitoring, evaluations, and patching. This adds cost and complexity.</li>\n</ul>\n<p><strong>Example:</strong> A bank hosts Llama inside its secure data center to ensure customer information never leaves its network.</p>\n\n<h4>3) Fit-by-Scenario Guide</h4>\n<ul>\n<li><strong>Gemini:</strong> Best for teams working heavily in Gmail, Docs, Sheets, and Slides.</li>\n<li><strong>ChatGPT:</strong> Strong for general-purpose drafting, rapid assistant building (Custom GPTs), and developer ecosystem support.</li>\n<li><strong>Claude:</strong> Suited for reviewing long documents, careful tone in communication, and producing business-friendly summaries.</li>\n<li><strong>Llama (open-weight):</strong> Chosen when self-hosting, strict policies, or isolation are non-negotiable.</li>\n<li><strong>NotebookLM:</strong> Ideal for research and Q&A over curated documents, providing citations and structured notebooks.</li>\n</ul>\n\n<h4>4) Risks & Mitigations</h4>\n<ul>\n<li><strong>Vendor lock-in:</strong> Reduce risk by keeping prompts, data, and tools portable across platforms.</li>\n<li><strong>Residency/control:</strong> Validate where data is stored; select self-hosting for strict regions or regulated industries.</li>\n<li><strong>Safety posture:</strong> Guardrails differ between vendors; always run internal evaluations and keep humans in the loop for sensitive outputs.</li>\n<li><strong>Cost predictability:</strong> Set usage budgets and quotas; keep prompts concise; forecast based on actual consumption.</li>\n</ul>\n<p><strong>Example:</strong> A compliance team ensures all AI-generated legal drafts are reviewed by a lawyer before sending, while IT sets token quotas to avoid budget overruns.</p>\n\n<h4>5) Procurement & Governance Checklist</h4>\n<p>Before adopting a model, run through this checklist:</p>\n<ul>\n<li><strong>Security review:</strong> How does the vendor handle, retain, and store data? In which regions?</li>\n<li><strong>Admin controls:</strong> Ensure support for SSO, RBAC, audit logs, and usage quotas/budgets.</li>\n<li><strong>Compliance mapping:</strong> Check certifications and agreements (SOC2, ISO, GDPR/DPA terms, handling of PII/PHI).</li>\n<li><strong>Support model:</strong> Verify SLA coverage and support responsiveness.</li>\n<li><strong>Exit strategy:</strong> Confirm you can export or migrate prompts, data, and workflows to avoid lock-in.</li>\n</ul>",
+	  "quiz": {
+		"questions": [
+		  {
+			"question": "A core advantage of hosted models (e.g., ChatGPT, Gemini) is…",
+			"options": ["Guaranteed on-prem control", "Lower engineering overhead and faster time-to-value", "Offline operation by default", "No vendor lock-in"],
+			"answer": "Lower engineering overhead and faster time-to-value",
+			"explanation": "Hosted services abstract infrastructure and scaling, letting teams move quickly."
+		  },
+		  {
+			"question": "Which option is most embedded in Google Workspace (Gmail/Docs/Sheets/Slides)?",
+			"options": ["Claude", "Gemini", "Llama", "Local fine-tune only"],
+			"answer": "Gemini",
+			"explanation": "Gemini integrates natively with Workspace tools."
+		  },
+		  {
+			"question": "Open-weight models (e.g., Llama) are preferred when…",
+			"options": ["Strict data control/on-prem requirements exist", "You need the fastest turnkey setup", "You prefer full vendor lock-in", "You never customize anything"],
+			"answer": "Strict data control/on-prem requirements exist",
+			"explanation": "Self-hosting supports compliance, residency, and customisation."
+		  },
+		  {
+			"question": "NotebookLM is best suited for…",
+			"options": ["GPU scheduling", "Image editing", "Ad targeting", "Research grounded in your curated sources"],
+			"answer": "Research grounded in your curated sources",
+			"explanation": "It organises knowledge packs and provides cited answers."
+		  },
+		  {
+			"question": "Across vendors, safety guardrails are…",
+			"options": ["Identical across providers", "Irrelevant in enterprises", "Varied and must be evaluated", "User-only features"],
+			"answer": "Varied and must be evaluated",
+			"explanation": "Guardrails differ; run your own evaluations and keep human review."
+		  }
+		]
+	  }
+	}
+,
+	{
+	  "id": "03-llms",
+	  "navTitle": "03. LLMs Explained",
+	  "title": "LLMs Explained (How they differ)",
+	  "overview": "Understand how Large Language Models (LLMs) work, what drives quality, cost, and latency, and how retrieval, tools, and multimodality extend their capabilities.",
+	  "coreContent": "<h4>1) Transformer Basics</h4>\n<p>Modern LLMs are based on the <strong>Transformer</strong> architecture. The key idea is <strong>self-attention</strong>, which allows the model to decide which words in a sequence are most important to each other. For example, in the sentence <em>“The cat sat on the mat because it was tired”</em>, the model needs to know that <em>“it”</em> refers to the cat, not the mat. By tracking these relationships across thousands of words, Transformers can preserve meaning over long passages.</p>\n<p>During training, the model is exposed to billions of text samples and adjusts billions of parameters. The goal is simple: get better at predicting the <em>next token</em>. From this humble ability, powerful applications emerge ,summarisation, drafting, translation, reasoning, and more.</p>\n\n<h4>2) Tokens & Cost Drivers</h4>\n<p>LLMs don’t see whole words, they see <strong>tokens</strong> ,small units of text that may be subwords, full words, or punctuation marks.</p>\n<ul>\n<li><strong>Total tokens = prompt tokens + completion tokens</strong>. Both affect cost and speed.</li>\n<li><strong>Example:</strong> “Artificial Intelligence” may be 2 tokens, while “AI” is just 1.</li>\n<li>Bigger models can be more accurate, but they are slower and more expensive per token.</li>\n<li>External tool calls (like running a calculation or database query) add latency but return precise results instead of guesses.</li>\n</ul>\n<p><strong>Every extra sentence costs tokens.</strong> That’s why prompt engineering matters ,concise, relevant inputs keep costs down and responses sharp.</p>\n\n<h4>3) Decoding Controls</h4>\n<p>When generating text, models don’t always choose the single “most likely” word. They sample from probabilities, and you can adjust how that sampling works:</p>\n<ul>\n<li><strong>Temperature:</strong> Higher = more creative and varied answers (good for brainstorming). Lower = more predictable (good for compliance or legal writing).</li>\n<li><strong>Top-p (nucleus sampling):</strong> The model looks at the top set of most probable words (e.g., top 10%) and chooses from there. This balances variety with reliability.</li>\n<li><strong>Max tokens:</strong> Sets a hard cap on how long the output can be. Prevents runaway responses and controls costs.</li>\n</ul>\n<p><strong>Example:</strong> At high temperature, the model might invent a playful poem. At low temperature, it will stick to factual bullet points.</p>\n\n<h4>4) Context Windows & Salience</h4>\n<p>Models have a maximum <strong>context window</strong> ,the total number of tokens they can process at once. Newer models can handle hundreds of pages of text, but more isn’t always better. If you give irrelevant or repetitive text, the model can get distracted.</p>\n<ul>\n<li>Put the most important content at the top of the prompt.</li>\n<li>Remove filler and duplicated sections.</li>\n<li>Use retrieval to pull in only the sections that matter.</li>\n</ul>\n<p><strong>Example:</strong> Instead of dumping a 200-page policy, retrieve just the 3 sections relevant to the employee’s question and feed those in.</p>\n\n<h4>5) Retrieval & Tooling</h4>\n<p>LLMs become far more powerful when combined with external systems:</p>\n<ul>\n<li><strong>Retrieval:</strong> Pull relevant information from a knowledge base or document library. This grounds the model’s answers and allows citations.</li>\n<li><strong>Tools:</strong> Offload specific tasks the model isn’t great at, like math, real-time data, or precise database lookups. Examples include calculators, CRM queries, or web searches.</li>\n</ul>\n<p><strong>Example:</strong> Instead of asking the LLM to “guess” a currency conversion, have it call a financial API and return the real-time value.</p>\n\n<h4>6) Multimodality</h4>\n<p>Newer LLMs aren’t just text-based ,they are <strong>multimodal</strong>, meaning they can take different input types like images, audio, or PDFs alongside text.</p>\n<ul>\n<li><strong>Example uses:</strong> Read a receipt image and extract line items, analyse a chart and describe trends, or answer questions about a PDF table.</li>\n<li><strong>When to use:</strong> Only when the non-text input adds real value. Otherwise, stick to text to save cost and reduce complexity.</li>\n</ul>\n",
+	  "quiz": {
+		"questions": [
+		  {
+			"question": "Retrieval primarily helps by…",
+			"options": ["Making prompts cheaper only", "Adding tokens regardless of relevance", "Adding relevant context from trusted sources", "Removing the need for tools"],
+			"answer": "Adding relevant context from trusted sources",
+			"explanation": "Grounding with external data reduces hallucinations and increases accuracy."
+		  },
+		  {
+			"question": "When should you add a tool call?",
+			"options": ["When exact math, lookup, or an external action is required", "For tone adjustments only", "Always, regardless of task", "Never—tools add risk"],
+			"answer": "When exact math, lookup, or an external action is required",
+			"explanation": "Precision tasks should be handled by deterministic tools, not guesses."
+		  },
+		  {
+			"question": "Longer prompts…",
+			"options": ["Are always better", "Can degrade results by adding noise", "Are always cheaper", "Have no effect"],
+			"answer": "Can degrade results by adding noise",
+			"explanation": "Salience matters ,include only what is relevant."
+		  },
+		  {
+			"question": "A token is best defined as…",
+			"options": ["A web request", "A unit of text processed by the model", "A file size limit", "An auth credential"],
+			"answer": "A unit of text processed by the model",
+			"explanation": "Tokens are the basic building blocks of input/output, driving cost and latency."
+		  },
+		  {
+			"question": "Multimodality adds value when…",
+			"options": ["Non-text inputs meaningfully inform the task", "Only text is needed", "Never—text is enough", "It’s used to increase token count"],
+			"answer": "Non-text inputs meaningfully inform the task",
+			"explanation": "Images, tables, or audio should be used when they truly improve outcomes."
+		  }
+		]
+	  }
+	}
+,
+	{
+	  "id": "04-prompts",
+	  "navTitle": "04. Prompts 101",
+	  "title": "Prompts 101",
+	  "overview": "Prompts are micro-specifications ,like writing a mini brief for the AI. Clear, structured prompts make outputs more reliable, business-ready, and easier to reuse.",
+	  "coreContent": "<h4>1) ROO Structure (Role, Objective, Outcome)</h4>\n<p>A simple way to design prompts is the ROO framework:</p>\n<ul>\n<li><strong>Role:</strong> Tell the AI who it should act as. Example: “You are a <em>procurement analyst</em>.” This sets tone and expertise.</li>\n<li><strong>Objective:</strong> Define the task and focus. Example: “Compare vendors focusing on <em>security and price</em>.”</li>\n<li><strong>Outcome:</strong> Specify the format. Example: “Return a <em>6-row table</em> with columns: Vendor, Strengths, Risks, Price.”</li>\n</ul>\n<p><strong>Analogy:</strong> Think of it like briefing a new team member. If you only say “do analysis,” you’ll get inconsistent work. But if you specify role, task, and output, you’ll get repeatable results.</p>\n\n<h4>2) CLEAR Framework</h4>\n<p>For more complex prompts, layer on CLEAR:</p>\n<ul>\n<li><strong>Context:</strong> Provide background or link relevant docs. Example: “Use the attached policy doc.”</li>\n<li><strong>Length:</strong> Limit the response size. Example: “No more than 200 words or 5 bullets.”</li>\n<li><strong>Explicitness:</strong> Define rules and edge cases. Example: “If a vendor has missing data, mark as ‘Unknown.’”</li>\n<li><strong>Audience:</strong> Tailor the response. Example: “Write for <em>executives</em> vs <em>engineers</em>.”</li>\n<li><strong>Response:</strong> Fix the format. Example: “Output in <em>JSON</em> or <em>table</em>.”</li>\n</ul>\n<p><strong>Tip:</strong> CLEAR prevents vague, open-ended answers by making every requirement explicit.</p>\n\n<h4>3) Templates You Can Reuse</h4>\n<p>Reusable prompt templates save time and improve consistency:</p>\n<ul>\n<li><strong>Summarise:</strong> “Summarise for <em>audience</em> in &lt;120 words; include 3 risks.”</li>\n<li><strong>Classify:</strong> “Return JSON {intent, urgency, owner} using the rules below.”</li>\n<li><strong>Extract:</strong> “From the text, extract {name, date, amount}. If missing, return null.”</li>\n</ul>\n<p><strong>Example:</strong> Customer service teams can classify support tickets by intent (complaint, feature request, billing) using one standard prompt.</p>\n\n<h4>4) Clarify & Abstain Rules</h4>\n<p>AI should not guess when key inputs are missing:</p>\n<ul>\n<li>If details are unclear, ask up to three clarifying questions.</li>\n<li>If inputs are incomplete, respond with <em>“Insufficient information provided”</em> and list what’s needed.</li>\n</ul>\n<p><strong>Example:</strong> Instead of inventing numbers for a missing sales figure, the AI should ask: “Do you want me to proceed without Q2 data?”</p>\n\n<h4>5) Anti-Patterns</h4>\n<p>Avoid these common mistakes that lead to weak results:</p>\n<ul>\n<li>Open-ended asks without specifying an audience or outcome. Example: “Write something about suppliers.”</li>\n<li>Dumping long documents without any question or focus.</li>\n<li>Changing output format every time (hard for automation).</li>\n</ul>\n<p><strong>Rule of thumb:</strong> Treat prompts like briefs for a contractor ,the clearer the instructions, the better the outcome.</p>",
+	  "quiz": {
+		"questions": [
+		  {
+			"question": "In the ROO prompt structure, the ‘R’ stands for…",
+			"options": ["Response", "Retrieval", "Role", "Risk"],
+			"answer": "Role",
+			"explanation": "Role defines the persona/expertise the model should emulate."
+		  },
+		  {
+			"question": "The CLEAR framework helps you…",
+			"options": ["Always shorten prompts", "Ensure all critical details are specified", "Replace ROO entirely", "Do calculations only"],
+			"answer": "Ensure all critical details are specified",
+			"explanation": "Context, Length, Explicitness, Audience, Response."
+		  },
+		  {
+			"question": "Requesting step-by-step reasoning is…",
+			"options": ["Tree-of-Thought", "An Abstain rule", "An Evaluator prompt", "Chain-of-Thought"],
+			"answer": "Chain-of-Thought",
+			"explanation": "CoT asks for intermediate steps before the final answer."
+		  },
+		  {
+			"question": "Why include ‘Abstain’ rules?",
+			"options": ["To make outputs longer", "To force an answer", "To prevent guessing when inputs are insufficient", "To style responses"],
+			"answer": "To prevent guessing when inputs are insufficient",
+			"explanation": "Models should clarify or decline when data is inadequate."
+		  },
+		  {
+			"question": "An ‘Evaluator’ prompt is used to…",
+			"options": ["Generate new content", "Shorten text", "Judge outputs against explicit criteria", "Ask clarifying questions"],
+			"answer": "Judge outputs against explicit criteria",
+			"explanation": "Evaluator prompts enforce quality gates on generated content."
+		  }
+		]
+	  }
+	}
+,
+	  {
+	  "id": "05-custom-assistants",
+	  "navTitle": "05. Custom Assistants",
+	  "title": "Custom Assistants (Custom GPTs & Gems)",
+	  "overview": "Custom assistants combine rules, curated knowledge, and tools. They are like specialised co-workers: trained to follow house rules, consult trusted documents, and take approved actions. Publishing requires careful governance with versioning, testing, and role-based permissions.",
+	  "coreContent": "<h4>1) Assistant Anatomy</h4>\n<p>A well-designed assistant has three main parts:</p>\n<ul>\n<li><strong>System prompt (rules):</strong> Sets the assistant’s personality, objectives, and guardrails. Example: “You are a customer support assistant. Always be polite, cite the policy document, and escalate if refund requests exceed $500.”</li>\n<li><strong>Knowledge:</strong> The library of curated documents it can draw on (manuals, policies, price lists). These documents ground answers in fact instead of guesses.</li>\n<li><strong>Tools:</strong> External actions the assistant is allowed to perform (e.g., calculator, CRM lookup, order tracking API). Tools extend capabilities beyond text generation.</li>\n</ul>\n\n<h4>2) System Prompt Skeleton</h4>\n<p>A reusable skeleton helps teams write consistent prompts:</p>\n<pre>\nGoal: <problem the assistant solves>\nScope: <what’s in/out of scope>\nTone: <business, concise, cite sources>\nSafety: <when to abstain or escalate>\nOutput format: <JSON / table / template>\n</pre>\n<p><strong>Example:</strong> For an HR assistant → Goal: answer leave policy questions; Scope: internal HR handbook only; Tone: friendly but professional; Safety: escalate legal queries; Output: concise bullet points.</p>\n\n<h4>3) Knowledge Hygiene</h4>\n<p>Assistants are only as good as their knowledge base. Poorly managed references lead to outdated or wrong answers.</p>\n<ul>\n<li>Use only authoritative sources; remove outdated versions promptly.</li>\n<li>Chunk long documents into smaller sections and add clear titles/metadata so retrieval is accurate.</li>\n<li>Include worked examples (“If an invoice is overdue, respond with template A”) to guide the model.</li>\n</ul>\n<p><strong>Example:</strong> A sales assistant should reference only the current year’s price list, not archived versions.</p>\n\n<h4>4) Tooling Guidelines</h4>\n<p>Tools must be carefully defined and monitored to prevent misuse:</p>\n<ul>\n<li>Clearly document each tool’s purpose, inputs, and outputs.</li>\n<li>Apply guardrails ,e.g., require approval for sensitive write actions (like updating a customer record).</li>\n<li>Log every call for auditing; include budgets and timeouts to avoid runaway costs.</li>\n<li>Return structured errors so failures don’t confuse users.</li>\n</ul>\n<p><strong>Example:</strong> A finance assistant may use a calculator tool for percentages, but cannot approve payments without human review.</p>\n\n<h4>5) Publishing & Governance</h4>\n<p>Moving an assistant from idea to production is a structured process:</p>\n<ul>\n<li><strong>Versioning:</strong> Track every change to prompts and configs; keep a CHANGELOG with quality notes.</li>\n<li><strong>Testing:</strong> Use evaluation sets at each stage (staging → pilot → production) to measure accuracy and safety.</li>\n<li><strong>RBAC:</strong> Restrict who can edit rules, upload knowledge, or enable tools. Not everyone should have production access.</li>\n</ul>\n<p><strong>Example:</strong> A legal assistant is tested with 50 past case queries before rollout. Only the legal ops team can edit its scope or upload new references.</p>",
+	  "quiz": {
+		"questions": [
+		  {
+			"question": "Uploaded references for an assistant live in…",
+			"options": ["Memory", "Its knowledge base", "Tools", "Browser cache"],
+			"answer": "Its knowledge base",
+			"explanation": "Curated, current sources form the foundation for reliable answers."
+		  },
+		  {
+			"question": "Add tools when you need…",
+			"options": ["Tone adjustments only", "Fewer tokens", "Fonts and themes", "External actions or exact math/lookup"],
+			"answer": "External actions or exact math/lookup",
+			"explanation": "Tools extend the assistant’s functionality beyond text generation."
+		  },
+		  {
+			"question": "Versioning primarily enables…",
+			"options": ["Rollback and reproducibility", "Cheaper prompts", "Automatic caching", "Brand control"],
+			"answer": "Rollback and reproducibility",
+			"explanation": "Tracking changes ensures you can revert if quality declines."
+		  },
+		  {
+			"question": "Rules that define scope and tone belong in the…",
+			"options": ["System prompt", "Tool list", "CSV attachment", "Footer"],
+			"answer": "System prompt",
+			"explanation": "The system prompt is the authoritative source of assistant behaviour."
+		  },
+		  {
+			"question": "Editing production assistants should be…",
+			"options": ["Open to anyone", "Anonymous", "Restricted by policy and roles", "Untracked"],
+			"answer": "Restricted by policy and roles",
+			"explanation": "RBAC and approvals maintain safety and accountability."
+		  }
+		]
+	  }
+	}
+,
+	  {
+	  "id": "06-agentic-ai",
+	  "navTitle": "06. Agentic AI",
+	  "title": "Agentic AI (What & Why)",
+	  "overview": "Unlike simple chatbots, agents can perceive, plan, act, and adjust using tools. This makes them powerful but also riskier ,so they must be built with strong controls, observability, and human oversight.",
+	  "coreContent": "<h4>1) Agent vs Chatbot</h4>\n<p>A <strong>chatbot</strong> responds turn-by-turn: you ask, it answers. An <strong>agent</strong> goes further ,it breaks down tasks, decides on steps, uses tools, checks results, and loops until the goal is achieved.</p>\n<p><strong>Example:</strong> A chatbot might answer, “Your order is in progress.” An agent could check the order system, see the delivery date, email the courier API if delayed, and return a detailed update.</p>\n\n<h4>2) Perception → Plan → Act Loop</h4>\n<p>Agents follow a feedback loop that mirrors human problem-solving:</p>\n<ul>\n<li><strong>Perception:</strong> Understand the request and gather relevant context (e.g., fetch customer profile).</li>\n<li><strong>Plan:</strong> Break into steps, choose the right tools, and order the actions logically.</li>\n<li><strong>Act:</strong> Execute tool calls, evaluate outcomes, and adjust if needed ,repeating until the goal is achieved.</li>\n</ul>\n<p><strong>Example:</strong> An IT support agent perceives “reset password,” plans steps (check identity → reset in Active Directory → confirm by email), and acts using APIs and workflows until complete.</p>\n\n<h4>3) Control Plane</h4>\n<p>Without boundaries, agents could loop endlessly or take unsafe actions. Controls keep them safe and predictable:</p>\n<ul>\n<li><strong>Budgets:</strong> Cap token spend, runtime, or number of tool calls per run.</li>\n<li><strong>Whitelists:</strong> Restrict access to approved tools, APIs, or domains only.</li>\n<li><strong>Approval gates:</strong> Require human sign-off before sensitive actions (e.g., issuing refunds or updating payroll).</li>\n</ul>\n<p><strong>Analogy:</strong> Think of an intern with a corporate credit card. You’d set spending limits and approvals ,the same applies to AI agents.</p>\n\n<h4>4) Observability</h4>\n<p>You can’t govern what you can’t see. Observability ensures you know what the agent is doing:</p>\n<ul>\n<li><strong>Structured logs:</strong> Record every decision, input, and tool call.</li>\n<li><strong>Traces:</strong> Follow an end-to-end workflow across multiple steps.</li>\n<li><strong>Metrics:</strong> Track success rate, cost per run, actions per run, and escalation frequency.</li>\n</ul>\n<p><strong>Example:</strong> A customer support agent’s logs reveal it escalates 20% of refund requests ,signalling either policy gaps or over-escalation.</p>\n\n<h4>5) Safety Rubric</h4>\n<p>Agents can be powerful, so safety rules are critical:</p>\n<ul>\n<li>No irreversible actions (e.g., deleting accounts, sending payments) without explicit approval.</li>\n<li>Always log inputs/outputs, and redact sensitive data (passwords, card numbers).</li>\n<li>Fail safe: if uncertain or low-confidence, escalate to a human instead of guessing.</li>\n</ul>\n<p><strong>Example:</strong> A finance agent can draft an invoice but cannot send it without human review, ensuring accountability.</p>",
+	  "quiz": {
+		"questions": [
+		  {
+			"question": "An AI agent differs from a chatbot because it can…",
+			"options": ["Only chat", "Render slides", "Invoke tools and take actions toward a goal", "Train models"],
+			"answer": "Invoke tools and take actions toward a goal",
+			"explanation": "Agents plan, act, and observe—chat is just one interface."
+		  },
+		  {
+			"question": "A core safety control for agents is…",
+			"options": ["Unlimited actions", "Hidden logs", "Budgets/limits on actions and spend", "No approvals"],
+			"answer": "Budgets/limits on actions and spend",
+			"explanation": "Set caps, approvals, and thresholds to manage risk."
+		  },
+		  {
+			"question": "Keep a human in the loop when…",
+			"options": ["Tone work only", "Spell-check", "Model confidence is low or stakes are high", "Paraphrasing"],
+			"answer": "Model confidence is low or stakes are high",
+			"explanation": "Escalate for ambiguity, novelty, or high impact."
+		  },
+		  {
+			"question": "Observability for agents should include…",
+			"options": ["Only CSS", "Logs, traces, and metrics", "Just OKRs", "Captions"],
+			"answer": "Logs, traces, and metrics",
+			"explanation": "You can’t govern what you can’t observe."
+		  },
+		  {
+			"question": "Whitelists are used to…",
+			"options": ["Increase context window", "Restrict permitted tools and actions", "Set fonts", "None of the above"],
+			"answer": "Restrict permitted tools and actions",
+			"explanation": "Tight scoping reduces the blast radius."
+		  }
+		]
+	  }
+	}
+,
+  {
+  "id": "07-agentic-workflows",
+  "navTitle": "07. Agentic Workflows",
+  "title": "Agentic Workflows (n8n & Python)",
+  "overview": "Agentic workflows combine LLM reasoning with orchestration and custom logic. Use n8n to schedule, route, and integrate systems; use Python for validation, calculations, and testing. Design with reliability, observability, and security in mind.",
+  "coreContent": "<h4>1) Separation of Concerns</h4>\n<p>Think of agentic workflows as a team with different roles:</p>\n<ul>\n<li><strong>Reasoning (LLM):</strong> Handles planning, drafting, and interpreting inputs. Example: “Summarise the customer email and decide next steps.”</li>\n<li><strong>Orchestration (n8n):</strong> Manages sequencing, retries, and integrations. Example: Route the AI’s decision to Slack, Salesforce, and email.</li>\n<li><strong>Custom logic (Python):</strong> Adds exact rules, validations, or calculations. Example: Recalculate VAT correctly before sending an invoice.</li>\n</ul>\n<p><strong>Analogy:</strong> The LLM is the strategist, n8n is the project manager, and Python is the specialist engineer.</p>\n\n<h4>2) n8n Building Blocks</h4>\n<p>n8n is a low-code workflow platform that connects systems together:</p>\n<ul>\n<li><strong>Triggers:</strong> Events that start a workflow, like “email received,” “webhook hit,” or “run every Monday 9am.”</li>\n<li><strong>Nodes:</strong> Steps in the flow, such as transforming data, calling an API, or writing to a database/Google Sheet.</li>\n<li><strong>Credentials vault:</strong> A secure place to store API keys and tokens. <strong>Never</strong> hardcode secrets into workflows.</li>\n</ul>\n<p><strong>Example:</strong> A support ticket workflow triggers when a new Zendesk ticket arrives, calls an LLM to classify urgency, and routes high-priority cases to PagerDuty.</p>\n\n<h4>3) Python Add-ons</h4>\n<p>Sometimes low-code isn’t enough. Use Python for:</p>\n<ul>\n<li><strong>Pre/post-processing:</strong> Clean raw text before feeding it to the model; validate that outputs are valid JSON.</li>\n<li><strong>Complex algorithms:</strong> Perform calculations (e.g., discount formulas, risk scoring) the LLM shouldn’t guess.</li>\n<li><strong>Unit tests:</strong> Lock in behaviour and detect regressions when prompts or workflows change.</li>\n</ul>\n<p><strong>Example:</strong> In a finance workflow, Python ensures rounding rules are always applied consistently before updating the ledger.</p>\n\n<h4>4) Reliability Recipes</h4>\n<p>Workflows need resilience ,failures should degrade gracefully, not cause chaos:</p>\n<ul>\n<li><strong>Exponential backoff:</strong> Retry transient failures like timeouts, adding longer delays between attempts.</li>\n<li><strong>Idempotency keys:</strong> Prevent duplicate charges or entries if a step is retried. (E.g., ensure a payment is only processed once.)</li>\n<li><strong>Observability:</strong> Use structured logs with correlation IDs so each request can be traced end-to-end.</li>\n</ul>\n<p><strong>Example:</strong> If an API call fails due to rate limits, the workflow retries after 1s, then 2s, then 4s, instead of hammering the service.</p>\n\n<h4>5) Secret Management</h4>\n<p>Workflows often connect to sensitive systems. Treat secrets carefully:</p>\n<ul>\n<li>Use a vault or Key Management System (KMS).</li>\n<li>Rotate API keys regularly.</li>\n<li>Grant the minimum permissions required (“least privilege”).</li>\n<li>Never print or log secrets ,redact them in observability tools.</li>\n</ul>\n<p><strong>Example:</strong> A workflow using Google APIs stores OAuth tokens in n8n’s vault and rotates them automatically, ensuring no developer ever sees the raw secret.</p>",
+  "quiz": {
+    "questions": [
+      {
+        "question": "An orchestrator (e.g., n8n) primarily…",
+        "options": ["Routes/schedules steps and integrates systems", "Replaces models", "Trains LLMs", "Prices APIs"],
+        "answer": "Routes/schedules steps and integrates systems",
+        "explanation": "It coordinates tasks; the model handles reasoning."
+      },
+      {
+        "question": "Retries with exponential backoff address…",
+        "options": ["Legal risk", "Transient errors such as timeouts", "UX only", "Prompt length"],
+        "answer": "Transient errors such as timeouts",
+        "explanation": "Increasing delay avoids overloading services and respects limits."
+      },
+      {
+        "question": "Secrets should be…",
+        "options": ["Inline strings", "Public", "Emailed when needed", "Not hardcoded and stored securely"],
+        "answer": "Not hardcoded and stored securely",
+        "explanation": "Use a vault/KMS, rotate keys, and avoid logging them."
+      },
+      {
+        "question": "Idempotency protects against…",
+        "options": ["Logging", "Duplicate side-effects on retries", "All errors", "Unit tests"],
+        "answer": "Duplicate side-effects on retries",
+        "explanation": "Ensures retries don’t double-charge or duplicate records."
+      },
+      {
+        "question": "Prefer code over low-code when…",
+        "options": ["Custom logic and tests are needed", "Building a marketing page", "Only PDFs are handled", "Never"],
+        "answer": "Custom logic and tests are needed",
+        "explanation": "Complex workflows or precision logic often require code."
+      }
+    ]
+  }
+}
+,
+{
+  "id": "08-use-cases",
+  "navTitle": "08. Use-Case Identification",
+  "title": "Use-Case Identification",
+  "overview": "Identify high-value, feasible AI opportunities by linking everyday pain points to proven AI patterns. Use baselines and readiness checks to focus efforts where ROI is measurable and adoption is realistic.",
+  "coreContent": "<h4>1) Spotting Inefficiencies</h4>\n<p>Good AI use-cases often solve problems that frustrate employees or customers. Look for inefficiencies such as:</p>\n<ul>\n<li><strong>Repetition:</strong> Tasks people copy/paste daily (e.g., updating the same status reports).</li>\n<li><strong>Volume:</strong> Many small tasks that add up (e.g., processing hundreds of customer emails).</li>\n<li><strong>Delay:</strong> Work stuck in queues or requiring summaries (e.g., waiting for analysts to condense meeting notes).</li>\n<li><strong>Error-prone:</strong> Manual re-keying or inconsistent formatting (e.g., sales data entered differently by each rep).</li>\n</ul>\n<p><strong>Example:</strong> A support team spends 20 minutes per ticket classifying and routing issues ,high repetition and high volume make this a great AI candidate.</p>\n\n<h4>2) Map to AI Patterns</h4>\n<p>Most business pain points map to a handful of repeatable AI patterns:</p>\n<ul>\n<li><strong>Summarise:</strong> Turn meeting transcripts into concise notes.</li>\n<li><strong>Classify:</strong> Route tickets by urgency or department.</li>\n<li><strong>Extract:</strong> Pull invoice numbers or dates from messy text.</li>\n<li><strong>Generate:</strong> Draft emails, FAQs, or reports.</li>\n<li><strong>Translate:</strong> Convert technical docs into plain language or across languages.</li>\n<li><strong>Plan/Reason:</strong> Suggest project steps or compare options.</li>\n</ul>\n<p><strong>Tip:</strong> If a pain point fits one of these patterns, it’s usually feasible with current AI.</p>\n\n<h4>3) Discovery Questions</h4>\n<p>Use structured questions to uncover opportunities:</p>\n<ul>\n<li>Where do people copy/paste the same info repeatedly?</li>\n<li>Which tasks pile up in backlogs or long wait times?</li>\n<li>What requires reading many pages to extract key facts?</li>\n<li>Which errors or rework create the most friction or cost?</li>\n</ul>\n<p><strong>Example:</strong> In HR, employees often ask the same five leave-policy questions ,repetitive, low-risk, and easy to automate.</p>\n\n<h4>4) Baselines Before Build</h4>\n<p>Before piloting AI, capture a baseline to prove ROI:</p>\n<ul>\n<li>Minutes spent per task.</li>\n<li>Frequency of the task per day/week/month.</li>\n<li>Number of users performing the task.</li>\n<li>Error/rework rate and cost of corrections.</li>\n</ul>\n<p><strong>Example:</strong> If analysts spend 30 hours/month summarising reports, you can compare post-AI usage to show time saved and justify scaling.</p>\n\n<h4>5) Readiness Signals</h4>\n<p>Even if the opportunity looks good, check for readiness:</p>\n<ul>\n<li><strong>Clear owner and champion:</strong> Someone accountable for adoption.</li>\n<li><strong>Data access:</strong> Availability of sample documents or records.</li>\n<li><strong>Risk profile:</strong> Low–medium risk and measurable value is best for early wins.</li>\n</ul>\n<p><strong>Example:</strong> A finance department with clean invoice data and a motivated sponsor is far more ready than an unowned process with sensitive data and no champion.</p>",
+  "quiz": {
+    "questions": [
+      {
+        "question": "Great candidates for AI are typically…",
+        "options": ["One-off bespoke activities", "Unowned work", "Repetitive and/or high-volume tasks", "None of these"],
+        "answer": "Repetitive and/or high-volume tasks",
+        "explanation": "Automation returns the most value where volume and repetition exist."
+      },
+      {
+        "question": "Creating meeting notes usually combines which patterns?",
+        "options": ["Translate only", "Summarise + Generate", "Classify only", "Extract only"],
+        "answer": "Summarise + Generate",
+        "explanation": "Condense the discussion and produce a structured draft."
+      },
+      {
+        "question": "Why capture baseline time before a pilot?",
+        "options": ["To measure ROI credibly", "To pick fonts", "To choose vendor names", "No reason"],
+        "answer": "To measure ROI credibly",
+        "explanation": "Without a baseline, improvements are not defensible."
+      },
+      {
+        "question": "A red flag for a ‘good’ use-case is…",
+        "options": ["High-stakes work with no verification", "Clear ownership", "Low volume", "Public docs"],
+        "answer": "High-stakes work with no verification",
+        "explanation": "Risk without controls undermines adoption."
+      },
+      {
+        "question": "Stakeholders are…",
+        "options": ["Optional", "Critical for adoption and sustainment", "Only needed post-launch", "Not needed"],
+        "answer": "Critical for adoption and sustainment",
+        "explanation": "Involve owners, sponsors, and end users early."
+      }
+    ]
+  }
+}
+,
+{
+  "id": "09-prioritization-roi",
+  "navTitle": "09. Prioritisation & ROI",
+  "title": "Prioritisation & ROI",
+  "overview": "Learn how to prioritise AI opportunities using value, effort, and risk. Calculate financial impact with formulas for monthly value, ROI, and payback period, and use sensitivity analysis to test assumptions.",
+  "coreContent": "<h4>1) Prioritisation Dimensions</h4>\n<p>Not every AI idea is equal. Use three dimensions to compare opportunities:</p>\n<ul>\n<li><strong>Value:</strong> How much time, cost, or risk it saves (e.g., fewer manual hours, reduced rework, lower compliance exposure).</li>\n<li><strong>Effort:</strong> Complexity of data access, integration requirements, and engineering lift.</li>\n<li><strong>Risk:</strong> Compliance concerns, customer impact, or change management challenges.</li>\n</ul>\n<p><strong>Example:</strong> Automating meeting notes may be high value/low effort, while automating legal contract review may be high value but high risk.</p>\n\n<h4>2) Monthly Value Formula</h4>\n<p>Quantify benefits in monetary terms using this baseline formula:</p>\n<p><code>Monthly Value = (Time Saved per Task × Frequency × Users × Hourly Rate) + Error-Cost Reduction</code></p>\n<p><strong>Example:</strong> If 5 analysts each save 15 minutes per day, the total value is (15/60 × $40 × 22 days × 5 users) = $1,100/month, plus any measurable error-cost reductions.</p>\n\n<h4>3) ROI & Payback</h4>\n<p>Return on Investment (ROI) helps justify spend to executives. Use this 12-month formula:</p>\n<p><code>12-Month ROI = ((12 × Value) − Build Cost − (12 × Run Cost)) / (Build Cost + (12 × Run Cost)) × 100</code></p>\n<p>The <strong>payback period</strong> is the month when cumulative benefits equal cumulative costs.</p>\n<p><strong>Rule of thumb:</strong> Projects with payback &lt;12 months are highly attractive for early adoption.</p>\n\n<h4>4) Worked Example</h4>\n<p>10 users × 20 minutes saved per day × 22 workdays × $35/hr ≈ $2,567/month.</p>\n<p>Build cost = $12k; Run cost = $400/month. At full adoption, payback ≈ 5.3 months.</p>\n<p><strong>Interpretation:</strong> Even if adoption is only 60%, the payback is under 9 months, making this a solid case.</p>\n\n<h4>5) Sensitivity Analysis</h4>\n<p>Assumptions rarely hold perfectly. Test scenarios by varying key drivers:</p>\n<ul>\n<li><strong>Adoption:</strong> What if only 30% of users adopt? 60%? 90%?</li>\n<li><strong>Time saved:</strong> Is it consistently 15 minutes, or could it be 10–20?</li>\n<li><strong>Error-cost reduction:</strong> Count only when documented with evidence.</li>\n</ul>\n<p><strong>Example:</strong> Sensitivity analysis shows that even with 50% adoption, the project breaks even in year one ,building confidence in the investment.</p>\n\n<h4>6) Prioritisation Matrix (Risk × Reward)</h4>\n<p>Visualise projects on a two-by-two grid:</p>\n<ul>\n<li><strong>High Reward / Low Risk:</strong> Start here ,they are quick wins.</li>\n<li><strong>High Reward / High Risk:</strong> Worth exploring later with guardrails.</li>\n<li><strong>Low Reward / Low Risk:</strong> Low impact, but easy to try.</li>\n<li><strong>Low Reward / High Risk:</strong> Usually not worth pursuing.</li>\n</ul>\n<figure class='roi-figure'>\n<img src='assets/roi-matrix.svg' alt='Risk versus Reward matrix with a highlighted High-Reward/Low-Risk focus area' style='max-width:100%;height:auto;border:1px solid #e5e7eb;border-radius:12px;box-shadow:0 6px 16px rgba(15,23,42,.06)'>\n<figcaption class='muted' style='margin-top:8px'>Tip: In workshops, place candidate use-cases on this matrix. Prioritise the top-left quadrant first (High Reward, Low Risk).</figcaption>\n</figure>",
+  "quiz": {
+    "questions": [
+      {
+        "question": "Prioritise projects that are…",
+        "options": ["Low value and high effort", "High value and low effort", "Random", "Highest risk first"],
+        "answer": "High value and low effort",
+        "explanation": "Start where payoff is strong and complexity is manageable."
+      },
+      {
+        "question": "You improve payback period by…",
+        "options": ["Adding more slides", "Picking the biggest model", "Reducing costs or increasing adoption/time saved", "Ignoring run costs"],
+        "answer": "Reducing costs or increasing adoption/time saved",
+        "explanation": "Faster benefits or lower costs recover investment sooner."
+      },
+      {
+        "question": "Include error-cost reduction in value…",
+        "options": ["When it’s measurable and attributable", "Never", "Always assume 50%", "Only during pilots"],
+        "answer": "When it’s measurable and attributable",
+        "explanation": "Count it only with credible evidence."
+      },
+      {
+        "question": "Adoption rate is…",
+        "options": ["A key sensitivity driver", "Irrelevant", "Constant", "Fixed by IT"],
+        "answer": "A key sensitivity driver",
+        "explanation": "Low adoption reduces realised value even if tooling is good."
+      },
+      {
+        "question": "Rate × Users × Frequency…",
+        "options": ["Reduces value", "Is unknown", "Has no effect", "Amplifies value"],
+        "answer": "Amplifies value",
+        "explanation": "These factors scale the time savings into monetary terms."
+      }
+    ]
+  }
+}
+,
+{
+  "id": "10-pilot-to-production",
+  "navTitle": "10. Pilot to Production",
+  "title": "Pilot to Production",
+  "overview": "Many AI initiatives die in ‘POC purgatory.’ To avoid stall, move in phases with clear exit criteria, service-level objectives (SLOs), observability, and robust fallbacks. Each stage should earn trust before scaling.",
+  "coreContent": "<h4>1) Phased Progression</h4>\n<p>Progress in deliberate steps to build confidence and avoid wasted investment:</p>\n<ul>\n<li><strong>POC (Proof of Concept):</strong> Validate feasibility using sample or synthetic data. Goal = “Does it work at all?”</li>\n<li><strong>Pilot:</strong> Deploy to a small group inside real workflows. Capture metrics (accuracy, time saved) and qualitative feedback (user trust).</li>\n<li><strong>Limited Production:</strong> Expand to more users with operational runbooks, monitoring, and support processes in place.</li>\n<li><strong>Scale:</strong> Roll out broadly across the org with mature governance, training, and performance reviews.</li>\n</ul>\n<p><strong>Example:</strong> An HR chatbot first answers 100 sample leave-policy queries (POC), then supports one department (Pilot), then expands company-wide (Scale).</p>\n\n<h4>2) Exit Criteria (per stage)</h4>\n<p>Each stage must have clear success criteria before moving forward:</p>\n<ul>\n<li><strong>Target quality:</strong> Evaluation set results meet threshold (e.g., ≥90% precision/recall).</li>\n<li><strong>Cost & latency:</strong> Each run stays within defined budget (e.g., <$0.05 per request; <2s response).</li>\n<li><strong>Safety checks:</strong> Escalation works; model abstains or flags low-confidence cases.</li>\n</ul>\n<p><strong>Tip:</strong> “Done” must be measurable, not subjective. No exit criteria = stall.</p>\n\n<h4>3) SLOs & Observability</h4>\n<p>Service-Level Objectives (SLOs) make quality expectations explicit and trackable:</p>\n<ul>\n<li>Accuracy (e.g., ≥85% agreement with human evaluators).</li>\n<li>Latency (e.g., <3s response for 95% of queries).</li>\n<li>Cost (e.g., <$1 per 1,000 queries).</li>\n</ul>\n<p>Use logs, traces, and dashboards to spot drift, failures, or regressions. Alerts should trigger when thresholds are breached.</p>\n<p><strong>Example:</strong> A dashboard shows rising latency after a new prompt version → rollback before user complaints grow.</p>\n\n<h4>4) Fallbacks & Rollback</h4>\n<p>AI should degrade gracefully instead of failing silently:</p>\n<ul>\n<li><strong>Fallbacks:</strong> Human review, simpler model, or rule-based system. Example: If invoice extraction fails, send the file to an analyst.</li>\n<li><strong>Rollback:</strong> Version everything (prompts, configs, code). Keep a “rollback button” with a pre-flight checklist to revert safely.</li>\n</ul>\n<p><strong>Rule:</strong> Never deploy a model you can’t instantly roll back.</p>\n\n<h4>5) Common Stall Points</h4>\n<p>Most projects stall for predictable reasons. Watch out for:</p>\n<ul>\n<li>No owner or champion; unclear approvals.</li>\n<li>No evaluation data to measure progress.</li>\n<li>Data access delays blocking pilots.</li>\n<li>Poor change management or lack of training for end users.</li>\n</ul>\n<p><strong>Example:</strong> A legal AI pilot stalls because there’s no agreed quality metric ,lawyers disagree if it’s “good enough.” Define criteria early.</p>",
+  "quiz": {
+    "questions": [
+      {
+        "question": "POCs commonly stall because…",
+        "options": ["Acceptance criteria are missing", "There are too many logs", "Prompts are short", "Tools are free"],
+        "answer": "Acceptance criteria are missing",
+        "explanation": "Define measurable exit criteria to progress confidently."
+      },
+      {
+        "question": "Evaluation sets are used to…",
+        "options": ["Reduce latency automatically", "Optional cosmetics", "Set pricing", "Track quality and regression over time"],
+        "answer": "Track quality and regression over time",
+        "explanation": "Stable evals let you compare versions apples-to-apples."
+      },
+      {
+        "question": "Observability in production is…",
+        "options": ["Optional", "Required", "Post-mortem only", "Not relevant"],
+        "answer": "Required",
+        "explanation": "Without logs/traces/metrics you cannot operate safely."
+      },
+      {
+        "question": "A sensible fallback for failure is to…",
+        "options": ["Add tokens", "Change vendor immediately", "Remove logs", "Ask for human review/approval"],
+        "answer": "Ask for human review/approval",
+        "explanation": "Graceful degradation protects outcomes and trust."
+      },
+      {
+        "question": "Rollback depends on…",
+        "options": ["Versioning of prompts, configs, and code", "CSS choices", "Longer prompts", "Dashboards alone"],
+        "answer": "Versioning of prompts, configs, and code",
+        "explanation": "You can’t revert to what you didn’t version."
+      }
+    ]
+  }
+}
+,
+{
+  "id": "11-everyday-integration",
+  "navTitle": "11. Everyday Integration",
+  "title": "Everyday Integration (Workspace)",
+  "overview": "AI delivers the most impact when embedded directly into daily tools like Gmail, Docs, Sheets, and Slides. This module explores practical integrations and the guardrails needed to balance productivity with governance.",
+  "coreContent": "<h4>1) Gmail</h4>\n<p>Email is often the biggest productivity drain. AI can help by:</p>\n<ul>\n<li><strong>Summarising threads:</strong> Condense 30-message chains into a 5-bullet recap with action items (task, owner, due date).</li>\n<li><strong>Drafting replies:</strong> Suggest concise, context-aware responses with proposed next steps.</li>\n<li><strong>Routing/classification:</strong> Automatically tag, label, or assign ownership (e.g., sales vs support).</li>\n</ul>\n<p><strong>Example:</strong> Instead of reading a long thread about a customer issue, AI provides a one-paragraph summary plus a draft response for approval.</p>\n\n<h4>2) Docs</h4>\n<p>Docs are where narratives live. AI adds value through:</p>\n<ul>\n<li><strong>Outlines & first drafts:</strong> Turn a 3-bullet idea into a structured outline or rough draft.</li>\n<li><strong>Summaries:</strong> Condense 10-page reports into a 1-page executive brief.</li>\n<li><strong>Evaluator prompts:</strong> Check writing for clarity, tone, bias, or completeness before sharing externally.</li>\n</ul>\n<p><strong>Example:</strong> A policy draft can be automatically checked for jargon, bias, and missing sections.</p>\n\n<h4>3) Sheets</h4>\n<p>AI transforms Sheets into more than rows and columns:</p>\n<ul>\n<li><strong>Classification:</strong> Tag rows by urgency, sentiment, or category.</li>\n<li><strong>Light analytics:</strong> Suggest pivots, identify trends, or highlight anomalies.</li>\n<li><strong>Structuring data:</strong> Convert messy notes into clean, structured tables.</li>\n</ul>\n<p><strong>Example:</strong> A sales ops analyst pastes 200 call notes, and AI extracts {client, date, outcome} into a structured table.</p>\n\n<h4>4) Slides</h4>\n<p>Slide decks are storytelling tools. AI accelerates creation by:</p>\n<ul>\n<li><strong>Docs → Slides conversion:</strong> Turn a written outline into a draft deck with slides and speaker notes.</li>\n<li><strong>Story flow suggestions:</strong> Recommend logical order of sections or polish bullet text.</li>\n</ul>\n<p><strong>Example:</strong> An annual report draft in Docs can generate a starter slide deck in minutes.</p>\n\n<h4>5) Governance Guardrails</h4>\n<p>Embedding AI in everyday tools increases risk if guardrails are missing. Always enforce:</p>\n<ul>\n<li><strong>Data policy:</strong> Never input unapproved personally identifiable information (PII).</li>\n<li><strong>Fact-checking:</strong> Verify all critical outputs before external or executive use.</li>\n<li><strong>Auditability:</strong> Keep logs of prompts and outputs; restrict advanced features by role.</li>\n</ul>\n<p><strong>Example:</strong> A finance analyst using AI to summarise budgets must still verify numbers before sharing with executives.</p>",
+  "quiz": {
+    "questions": [
+      {
+        "question": "Long-form drafting and summarising maps best to…",
+        "options": ["Docs", "Sheets", "Slides", "Calendar"],
+        "answer": "Docs",
+        "explanation": "Docs is built for narrative content and collaboration."
+      },
+      {
+        "question": "Structured/tabular outputs fit best in…",
+        "options": ["Docs", "Sheets", "Slides", "Keep"],
+        "answer": "Sheets",
+        "explanation": "Tables, formulas, and quick analytics live here."
+      },
+      {
+        "question": "Handling PII in prompts…",
+        "options": ["Is fine in drafts", "Avoid unapproved PII entirely", "Is always allowed", "Has no policy impact"],
+        "answer": "Avoid unapproved PII entirely",
+        "explanation": "Respect policy and compliance requirements."
+      },
+      {
+        "question": "A Slides shortcut for decks is…",
+        "options": ["Only from Sheets", "Only via email", "Generate an outline from a Doc", "No shortcut exists"],
+        "answer": "Generate an outline from a Doc",
+        "explanation": "Docs → Slides accelerates deck creation."
+      },
+      {
+        "question": "A core governance rule for Workspace AI is to…",
+        "options": ["Rely on model memory", "Skip reviews", "Verify critical facts before acting", "Avoid citations"],
+        "answer": "Verify critical facts before acting",
+        "explanation": "Trust but verify for decisions with impact."
+      }
+    ]
+  }
+}
+,
+  {
+    "id": "12-final-exam",
+    "navTitle": "12. Final Exam",
+    "title": "Final Exam",
+    "overview": "Answer 30 questions covering all modules. Passing score is 80% (24/30).",
+    "coreContent": "",
+    "quiz": {
+      "questions": [
+        { "question": "Traditional software differs from machine learning because:", "options": ["It learns patterns from large datasets", "It relies on explicitly programmed rules", "It adjusts automatically to new data", "It uses probabilistic inference"], "answer": "It relies on explicitly programmed rules" },
+        { "question": "Large language models operate primarily by:", "options": ["Executing rules in code", "Retrieving facts from databases", "Predicting the next token in a sequence", "Running deterministic workflows"], "answer": "Predicting the next token in a sequence" },
+        { "question": "A common failure mode where the AI produces confident but incorrect outputs is:", "options": ["Missing inputs", "Hallucination", "Stale context", "Mis-specified task"], "answer": "Hallucination" },
+        { "question": "Which framework ensures prompts specify Role, Objective, and Outcome?", "options": ["ROO", "CLEAR", "Chain-of-Thought", "Evaluator"], "answer": "ROO" },
+        { "question": "In prompting, abstain rules are valuable because they:", "options": ["Increase output length", "Reduce latency", "Expand context windows", "Prevent guessing when inputs are insufficient"], "answer": "Prevent guessing when inputs are insufficient" },
+        { "question": "A hosted model like ChatGPT is best suited for:", "options": ["Rapid prototyping with minimal infra setup", "On-prem compliance environments", "Offline-only deployments", "Custom GPU training"], "answer": "Rapid prototyping with minimal infra setup" },
+        { "question": "Llama is particularly well suited for:", "options": ["Strict control and self-hosted deployments", "Google Workspace drafting", "Long-context reviews with cautious tone", "Rapid Custom GPTs"], "answer": "Strict control and self-hosted deployments" },
+        { "question": "In configuring assistants, version control is critical because:", "options": ["It reduces cost", "It increases context size", "It ensures reproducibility and rollback", "It prevents adoption issues"], "answer": "It ensures reproducibility and rollback" },
+        { "question": "Agents differ from chatbots primarily in their ability to:", "options": ["Summarise content", "Always use JSON", "Call external tools and take actions", "Reduce latency"], "answer": "Call external tools and take actions" },
+        { "question": "An action cap in an agent policy is designed to:", "options": ["Limit the number of actions in a run", "Increase reasoning ability", "Guarantee ROI", "Avoid prompting errors"], "answer": "Limit the number of actions in a run" },
+        { "question": "In n8n, nodes represent:", "options": ["External APIs only", "Database schemas", "Individual workflow steps", "Logging events"], "answer": "Individual workflow steps" },
+        { "question": "Exponential backoff is a reliability practice that:", "options": ["Shortens logs", "Eliminates idempotency", "Spreads out retries to reduce overload", "Reduces adoption risk"], "answer": "Spreads out retries to reduce overload" },
+        { "question": "Idempotency in workflows ensures:", "options": ["Operations produce the same result even if repeated", "Logs are randomised", "API calls always succeed", "Models reduce cost"], "answer": "Operations produce the same result even if repeated" },
+        { "question": "A high-value AI use-case usually has:", "options": ["High repetition, volume, or error-prone steps", "Low volume and rare use", "Minimal adoption potential", "Undefined outcomes"], "answer": "High repetition, volume, or error-prone steps" },
+        { "question": "Which AI pattern is best for routing emails into categories?", "options": ["Summarise", "Classify", "Extract", "Translate"], "answer": "Classify" },
+        { "question": "Monthly value is calculated as:", "options": ["(Build Cost - Run Cost) * Users", "(Time Saved * Frequency * Users * Rate) + Error-Cost Reduction", "(Adoption * Build Cost) * 12", "Only run costs"], "answer": "(Time Saved * Frequency * Users * Rate) + Error-Cost Reduction" },
+        { "question": "The payback period is defined as:", "options": ["Always 6 months", "ROI divided by adoption", "When cumulative value exceeds total cost", "Error rate reduction over time"], "answer": "When cumulative value exceeds total cost" },
+        { "question": "Sensitivity analysis stress-tests:", "options": ["Adoption % and minutes saved", "Only token length", "Logging performance", "Vendor integration costs"], "answer": "Adoption % and minutes saved" },
+        { "question": "A key stall point in moving from pilot to production is:", "options": ["Too many eval sets", "Low token count", "Lack of clear owners or acceptance criteria", "Overuse of JSON"], "answer": "Lack of clear owners or acceptance criteria" },
+        { "question": "Evaluation sets are primarily used to:", "options": ["Measure regression and model quality over time", "Reduce latency", "Shorten prompts", "Calculate ROI"], "answer": "Measure regression and model quality over time" },
+        { "question": "A rollback plan is critical because it:", "options": ["Guarantees no downtime ever", "Reduces adoption costs", "Allows reversion to a stable version if deployment fails", "Automates summarisation"], "answer": "Allows reversion to a stable version if deployment fails" },
+        { "question": "Least-privilege access means:", "options": ["Giving all users admin rights", "Storing credentials in plain text", "Granting the minimum permissions required", "Always disabling audit logs"], "answer": "Granting the minimum permissions required" },
+        { "question": "In Gmail, AI can:", "options": ["Summarise threads and extract tasks", "Change slide layouts", "Run Python scripts", "Execute budget approvals"], "answer": "Summarise threads and extract tasks" },
+        { "question": "In Docs, AI is most useful for:", "options": ["Running APIs", "Outlining, summarising, and adjusting tone", "Reducing latency", "Translating code"], "answer": "Outlining, summarising, and adjusting tone" },
+        { "question": "In Sheets, AI can:", "options": ["Trigger approvals", "Classify entries and highlight anomalies", "Edit access permissions", "Shorten SLOs"], "answer": "Classify entries and highlight anomalies" },
+        { "question": "In Slides, AI can:", "options": ["Run network retries", "Log credentials", "Convert Docs into decks and generate speaker notes", "Produce rollback plans"], "answer": "Convert Docs into decks and generate speaker notes" },
+        { "question": "A key governance rule when using Workspace AI is:", "options": ["Always trust outputs as facts", "Disable audit trails", "Never include unapproved PII in prompts", "Bypass approvals"], "answer": "Never include unapproved PII in prompts" },
+        { "question": "If an AI assistant is used to summarise compliance documents (retrieval + Workspace integration), what governance step is essential?", "options": ["Ignore adoption", "Use exponential backoff", "Fact-check outputs against official sources", "Store summaries without logs"], "answer": "Fact-check outputs against official sources" },
+        { "question": "When evaluating ROI for an AI-powered summarisation tool, which factor most affects realised value?", "options": ["Logging volume", "Adoption rate of target users", "Model token size", "Audit trail length"], "answer": "Adoption rate of target users" },
+        { "question": "An agent with no observability but full tool access is risky because:", "options": ["Costs are always low", "It always increases adoption", "Actions can't be traced or audited", "Prompts will be ambiguous"], "answer": "Actions can't be traced or audited" }
+      ]
+    }
+  }
+]
