@@ -513,8 +513,22 @@ ul { list-style: none; }
 }
 @media (max-width: 768px) {
     .pricing-grid { grid-template-columns: 1fr; }
+    .pricing-card { padding: 1.75rem; }
     .pricing-card.featured { transform: none; }
     .pricing-card.featured:hover { transform: translateY(-4px); }
+}
+
+/* ── 4-column pricing grid (once-off plans) ── */
+.pricing-grid-4 {
+    grid-template-columns: repeat(4, 1fr);
+    max-width: 1300px;
+    gap: 1.25rem;
+}
+@media (max-width: 900px) {
+    .pricing-grid-4 { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+    .pricing-grid-4 { grid-template-columns: 1fr; }
 }
 
 /* ── Pricing toggle ── */
@@ -529,6 +543,15 @@ ul { list-style: none; }
     transition: all 0.3s ease; font-family: 'Montserrat', sans-serif;
 }
 .pricing-toggle-btn.active { background: #1D4ED8; color: #fff; box-shadow: 0 2px 10px rgba(29,78,216,0.25); }
+@media (max-width: 600px) {
+    .pricing-toggle { width: 100%; max-width: 340px; }
+    .pricing-toggle-btn { padding: 0.65rem 1rem; font-size: 0.8rem; flex: 1; text-align: center; }
+}
+
+
+/* ── Social media pricing sticky panel ── */
+.social-pricing-sticky { position: sticky; top: 2rem; }
+@media (max-width: 768px) { .social-pricing-sticky { position: static; } }
 
 /* ── Blog cards ── */
 .blog-card {
