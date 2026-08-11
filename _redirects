@@ -3,3 +3,8 @@
 # Old JS-rendered blog URLs (post.html?slug=…) -> new static per-post pages.
 # 301 preserves any accrued link equity and consolidates duplicates.
 /post.html  slug=:slug  /:slug.html  301!
+
+# "Grow Online" services page merged into the Digital Marketing page.
+# 301 passes its ranking equity to the keyword-rich URL.
+/services       /digital-marketing  301!
+/services.html  /digital-marketing  301!

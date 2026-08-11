@@ -37,7 +37,7 @@ const fmtDate = (iso) => new Date(iso + 'T00:00:00').toLocaleDateString('en-ZA',
 const ctaMap = {
   'AI Tools':  { title: 'Want AI set up for your business?', desc: 'We run hands-on AI implementation sessions tailored to your workflow. Book a free 15-minute call.', href: 'ai.html', btn: 'Explore AI Services' },
   'Websites':  { title: 'Ready for a professional website?', desc: 'We build your site for free first. If you love it, take it live. No obligation.', href: 'https://wa.me/27847314960?text=Hi%20COCOCORP!%20I%20read%20your%20blog%20and%20want%20a%20free%20website%20demo.', btn: 'Get Your Free Demo', ext: true },
-  'Growth':    { title: 'Need help converting more leads?', desc: 'We build websites designed to generate and capture leads. Let us show you how.', href: 'services.html', btn: 'See Our Services' },
+  'Growth':    { title: 'Need help converting more leads?', desc: 'We build websites designed to generate and capture leads. Let us show you how.', href: 'digital-marketing.html', btn: 'See Our Services' },
   'Strategy':  { title: 'Want a tech strategy for your business?', desc: 'We help small businesses implement the right tools. Book a free consultation.', href: 'https://wa.me/27847314960?text=Hi%20COCOCORP!%20I%20read%20your%20blog%20and%20want%20to%20discuss%20a%20tech%20strategy.', btn: 'Chat With Us', ext: true }
 };
 
@@ -133,7 +133,8 @@ function renderPage(post) {
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"></noscript>
 <link rel="stylesheet" href="css/cococorp.css">
 <script type="application/ld+json">
 ${schema(post, url)}
@@ -174,7 +175,7 @@ ${renderBody(post)}
         <h2 class="heading-lg color-white scroll-words">Ready to Grow Your Business?</h2>
         <p class="scroll-para text-muted" style="font-size:1.1rem;max-width:600px;margin:0 auto 2rem;">Whether you need a website, SEO, or AI training, we're here to help. Chat to us today.</p>
         <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;" class="scroll-para">
-            <a href="services.html" class="btn-primary">See Our Services</a>
+            <a href="digital-marketing.html" class="btn-primary">See Our Services</a>
             <a href="ai.html" class="btn-outline">AI for Business</a>
         </div>
     </div>

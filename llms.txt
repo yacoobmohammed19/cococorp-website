@@ -84,7 +84,7 @@ LinkedIn: https://linkedin.com/company/cococorp-tech
 ## Pages
 
 - Home: https://cococorp.tech/
-- Grow Online (Website, Social & AI Pricing): https://cococorp.tech/services.html
+- Grow Online (Website, Social & AI Pricing): https://cococorp.tech/digital-marketing.html
 - AI Coaching: https://cococorp.tech/ai.html
 - Free AI Portal: https://cococorp.tech/portal.html
 - About: https://cococorp.tech/about.html
