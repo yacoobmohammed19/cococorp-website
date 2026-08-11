@@ -74,11 +74,12 @@
         for (var i = 0; i < sorted.length; i++) {
             var post = sorted[i];
             var dateStr = new Date(post.date).toLocaleDateString('en-ZA', {year:'numeric', month:'long', day:'numeric'});
-            html += '<a href="post.html?slug=' + post.slug + '" class="blog-card scroll-para visible" style="--si:' + i + ';text-decoration:none;color:inherit;display:block;">'
+            var excerpt = (post.excerpt || '').replace(/ ,(\S)/g, ', $1');
+            html += '<a href="' + post.slug + '.html" class="blog-card scroll-para visible" style="--si:' + i + ';text-decoration:none;color:inherit;display:block;">'
                 + '<div class="blog-card-body">'
                 + '<span class="blog-card-tag" style="background:' + post.tagColor + '15;color:' + post.tagColor + ';">' + post.tag + '</span>'
                 + '<h2 style="font-size:1.2rem;font-weight:800;color:#0f172a;margin-bottom:0.5rem;line-height:1.3;">' + post.title + '</h2>'
-                + '<p style="font-size:0.9rem;color:#6b7280;line-height:1.6;margin-bottom:1rem;">' + post.excerpt + '</p>'
+                + '<p style="font-size:0.9rem;color:#6b7280;line-height:1.6;margin-bottom:1rem;">' + excerpt + '</p>'
                 + '<div style="display:flex;justify-content:space-between;align-items:center;font-size:0.8rem;color:#9ca3af;">'
                 + '<span>' + dateStr + '</span>'
                 + '<span>' + post.readTime + '</span>'

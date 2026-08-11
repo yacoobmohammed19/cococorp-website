@@ -1,0 +1,5 @@
+# Netlify redirects
+
+# Old JS-rendered blog URLs (post.html?slug=…) -> new static per-post pages.
+# 301 preserves any accrued link equity and consolidates duplicates.
+/post.html  slug=:slug  /:slug.html  301!
